@@ -1,6 +1,7 @@
 .data-viz {
   width: 50%;
-  background-image: linear-gradient(to top left, #F0DBFF 0%, #9419FF 100%);
+  background-image: linear-gradient(to top left, #9419FF 0%, #33146F 100%);
+  /* background-color: #9419FF; */
   display: flex;
   justify-content: center;
 }
