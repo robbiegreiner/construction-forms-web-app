@@ -1,0 +1,54 @@
+.controls {
+  width: 50%;
+  height: 100%;
+  background-color: #F2F4F7;
+  border-radius: 4px 0 0px 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.controls hr {
+  width: 90%;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 5% 10% 5%;
+  height: 90%;
+  width: 90%;
+}
+
+.button {
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 33.3%;
+  height: 33.3%;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #DEE3EB;
+}
+
+.circle-icon {
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  background-color: #FFFFFF;
+  margin-bottom: 30px;
+}
+
+.button-name {
+  margin-bottom: 5px;
+}
