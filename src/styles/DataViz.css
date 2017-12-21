@@ -1,0 +1,10 @@
+.data-viz {
+  width: 50%;
+  background-image: linear-gradient(to top left, #F0DBFF 0%, #9419FF 100%);
+  display: flex;
+  justify-content: center;
+}
+
+.data-viz h1 {
+  margin-top: 20px;
+}

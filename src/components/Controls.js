@@ -5,7 +5,7 @@ import '../styles/Controls.css';
 class Controls extends Component {
   render() {
     return (
-      <section className="main-container">
+
         <div className="controls">
           <h1>Controls</h1>
           <hr/>
@@ -57,7 +57,7 @@ class Controls extends Component {
 
           </div>
         </div>
-      </section>
+
     );
   }
 }
