@@ -47,6 +47,7 @@
   border-radius: 100%;
   background-color: #FFFFFF;
   margin-bottom: 30px;
+  box-shadow: 5px 5px 10px -9px rgba(0,0,0,0.75)
 }
 
 .button-name {
