@@ -7,9 +7,13 @@ class Controls extends Component {
   generateButtons() {
     const buttonContent = ['Projects', 'Employees', 'View All Reports', 'View Reports By Project', 'View Reports By Employee', 'Placeholder', 'Placeholder', 'Placeholder', 'Placeholder']
 
-    return buttonContent.map(buttonName => {
+    return buttonContent.map((buttonName, index) => {
       return (
-        <div className="button">
+        <div 
+          className="button" 
+          onClick={() => this.props.selectControl(buttonName)}
+          key={"button-type-" + buttonName + index}
+        >
           <div className="circle-icon"></div>
           <p className="button-name">{buttonName}</p>
         </div>
