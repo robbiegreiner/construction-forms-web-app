@@ -1,0 +1,19 @@
+form {
+  width: 400px;
+  border: 1px solid blue;
+  overflow: scroll;
+}
+
+form h1 {
+  text-align: center;
+}
+
+form section input {
+  width: 99%;
+  height: 60px;
+}
+
+form .bool-info input {
+  width: initial;
+  vertical-align: middle;
+}
