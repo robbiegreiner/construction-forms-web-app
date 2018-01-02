@@ -23,8 +23,28 @@ class Form extends Component {
 
   postForm(event) {
     event.preventDefault();
-    console.log(this.state);
-  }
+    fetch('http://localhost:4000/api/v1/forms/hotwork', {
+      method: 'POST',
+      headers: {
+        'content-type' : 'application/json'
+      },
+      body: JSON.stringify({
+        employee_name: this.state.employee_name,
+        employee_email: this.state.employee_email,
+        project_id: this.state.project_id,
+        company: this.state.company,
+        date: this.state.date,
+        firewatchRequirement: this.state.firewatchRequirement,
+        timeStart: this.state.timeStart,
+        finishTime: this.state.finishTime,
+        areaInspected: this.state.areaInspected,
+        fireExtinguisher: this.state.fireExtinguisher,
+        flammablesRemoved: this.state.flammablesRemoved,
+        smokeDetectorsDisabled: this.state.smokeDetectorsDisabled,
+        sprinklerHeadsProtected: this.state.employee_name
+      })
+    });
+  };
 
   render() {
     return (
