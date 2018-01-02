@@ -2,6 +2,29 @@ import React, { Component } from 'react';
 import '../styles/Form.css';
 
 class Form extends Component {
+  constructor() {
+    super();
+    this.state = {
+      employee_name: '',
+      employee_email: '',
+      project_id: '',
+      company: '',
+      date: '',
+      firewatchRequirement: '',
+      timeStart: '',
+      finishTime: '',
+      areaInspected: false,
+      fireExtinguisher: false,
+      flammablesRemoved: false,
+      smokeDetectorsDisabled: false,
+      sprinklerHeadsProtected: false
+    }
+  }
+
+  postForm(event) {
+    event.preventDefault();
+    console.log(this.state);
+  }
 
   render() {
     return (
@@ -14,45 +37,58 @@ class Form extends Component {
         </h3>
         <p>Required fields are followed by <abbr title="required">*</abbr></p>
         <section className="general-info">
-          <label htmlFor="employee-name">Name: <abbr title="required">*</abbr> 
-            <input type="text" id="employee-name" placeholder="Employee Name" />
+
+          <label htmlFor="project-id">Project ID: <abbr title="required">*</abbr>
+            <input type="text" ref="project-id" placeholder="project id" onChange={(event) => this.setState({project_id: event.target.value})} />
           </label>
-          <label htmlFor="company">Company: <abbr title="required">*</abbr> 
-            <input type="text" id="company" placeholder="Company" />
+
+          <label htmlFor="employeename">Name: <abbr title="required">*</abbr>
+            <input type="text" ref="employee_name" placeholder="Employee Name" onChange={(event) => this.setState({employee_name: event.target.value})} />
           </label>
-          <label htmlFor="date">Date: <abbr title="required">*</abbr> 
-            <input type="date" id="date" />
+
+          <label htmlFor="email">Email: <abbr title="required">*</abbr>
+            <input type="text" ref="email" placeholder="Email" onChange={(event) => this.setState({employee_email: event.target.value})} />
+          </label>
+
+          <label htmlFor="company">Company: <abbr title="required">*</abbr>
+            <input type="text" ref="company" placeholder="Company" onChange={(event) => this.setState({company: event.target.value})}/>
+          </label>
+          <label htmlFor="date">Date: <abbr title="required">*</abbr>
+            <input type="date" ref="date" onChange={(event) => this.setState({date: event.target.value})} />
           </label>
         </section>
         <section className="string-info">
-          <label htmlFor="firewatch-req">Firewatch Requirement? <abbr title="required">*</abbr> 
-            <input type="text" id="firewatch-req" placeholder="Firewatch requirement?" />
+          <label htmlFor="firewatch-req">Firewatch Requirement? <abbr title="required">*</abbr>
+            <input type="text" ref="firewatchRequirement" placeholder="Firewatch requirement?" onChange={(event) => this.setState({firewatchRequirement: event.target.value})} />
           </label>
-          <label htmlFor="start-time">Start Time<abbr title="required">*</abbr> 
-            <input type="time" id="start-time" />
+          <label htmlFor="start-time">Start Time<abbr title="required">*</abbr>
+            <input type="time" ref="timeStart" onChange={(event) => this.setState({timeStart: event.target.value})} />
           </label>
-          <label htmlFor="end-time">Start Time<abbr title="required">*</abbr> 
-            <input type="time" id="end-time" />
+          <label htmlFor="end-time">End Time<abbr title="required">*</abbr>
+            <input type="time" ref="finishTime" onChange={(event) => this.setState({finishTime: event.target.value})} />
           </label>
         </section>
         <section className="bool-info">
-          <label htmlFor="area-inspected">Area Inspected? <abbr title="required">*</abbr><br /> 
-            <input type="radio" name="inspected" value="yes" />Yes<br />
-            <input type="radio" name="inspected" value="no" />No<br />
+
+          <label htmlFor="area-inspected" onChange={(event) => this.setState({areaInspected: event.target.value})}>Area Inspected? <abbr title="required">*</abbr><br />
+            <input type="radio" ref="areaInspected" name="inspected" value="true" />Yes<br />
+            <input type="radio" name="inspected" ref="areaInspected" value="false"/>No<br />
           </label>
-          <label htmlFor="fire-extinguesher">Fire Extinguisher? <abbr title="required">*</abbr><br /> 
-            <input type="radio" name="extinguisher" value="yes" />Yes<br />
-            <input type="radio" name="extinguisher" value="no" />No<br />
+
+
+          <label htmlFor="fire-extinguesher" ref="fireExtinguisher" onChange={(event) => this.setState({fireExtinguisher: event.target.value})}>Fire Extinguisher? <abbr title="required">*</abbr><br />
+            <input type="radio" name="extinguisher" value="true" />Yes<br />
+            <input type="radio" name="extinguisher" value="false" />No<br />
           </label>
-          <label htmlFor="flammables-removed">Flammables Removed? <abbr title="required">*</abbr><br /> 
-            <input type="radio" name="flammables" value="yes" />Yes<br />
-            <input type="radio" name="flammables" value="no" />No<br />
+          <label htmlFor="flammables-removed" ref="flammablesRemoved" onChange={(event) => this.setState({flammablesRemoved: event.target.value})}>Flammables Removed? <abbr title="required">*</abbr><br />
+            <input type="radio" name="flammables" value="true" />Yes<br />
+            <input type="radio" name="flammables" value="false" />No<br />
           </label>
-          <label htmlFor="smoke-detectors">Smoke Detectors Disabled? <abbr title="required">*</abbr><br /> 
+          <label htmlFor="smoke-detectors" ref="smokeDetectorsDisabled" onChange={(event) => this.setState({smokeDetectorsDisabled: event.target.value})}>Smoke Detectors Disabled? <abbr title="required">*</abbr><br />
             <input type="radio" name="smoke-detectors" value="yes" />Yes<br />
             <input type="radio" name="smoke-detectors" value="no" />No<br />
           </label>
-          <label htmlFor="sprinkler-headers">Sprinkler Heads Protected? <abbr title="required">*</abbr><br /> 
+          <label htmlFor="sprinkler-headers" ref="sprinklerHeadsProtected" onChange={(event) => this.setState({sprinklerHeadsProtected: event.target.value})}>Sprinkler Heads Protected? <abbr title="required">*</abbr><br />
             <input type="radio" name="sprinkler-heads" value="yes" />Yes<br />
             <input type="radio" name="sprinkler-heads" value="no" />No<br />
           </label>
@@ -60,7 +96,7 @@ class Form extends Component {
         <section>
           <input type="text" placeholder="Signature" />
         </section>
-        <input type="submit" value="Submit" />
+        <button onClick={(event) => this.postForm(event)}>Submit</button>
       </form>
     )
   }
