@@ -11,12 +11,22 @@ class Home extends Component {
 
     this.state = {
       selectedControl: '',
-      newEmployee: {}
+      newEmployee: {},
+      newProject: {},
     };
   }
 
   selectControl = (control) => {
     this.setState({selectedControl: control});
+  }
+
+  handleEmployeeChange = (event) => {
+    this.setState({
+      newEmployee: Object.assign({}, 
+        this.state.newEmployee, 
+        { [event.target.className]: event.target.value }
+      )
+    })
   }
 
   handleEmployeeChange = (event) => {
