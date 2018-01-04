@@ -1,8 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { shallow } from 'enzyme';
+import App from '../components/App';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  shallow(<App />);
 });
+
+it('should have a single child element', () => {
+  const wrapper = shallow(<App />);
+  expect(wrapper.length).toEqual(1);
+})

@@ -4,4 +4,38 @@
   background-color: white;
   border-radius: 4px;
   display: flex;
+  position: relative;
+}
+
+.add-popup {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,.5);
+}
+
+.add-popup label {
+  display: block;
+}
+
+.add-popup input {
+  display: block;
+  width: 80%;
+  margin: auto;
+}
+
+.popup-form {
+  text-align: center;
+  padding: 25px;
+  width: 50%;
+  background-color: #DEE3EB;
+}
+
+.close-popup {
+  float: right;
 }
