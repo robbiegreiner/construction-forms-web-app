@@ -18,6 +18,14 @@ class Home extends Component {
     this.setState({selectedControl: control});
   }
 
+  renderPopUp() {
+    if (this.state.selectedControl === 'Add Employee') {
+      return (
+        <div>hey</div>
+      )
+    }
+  }
+
   render() {
     return (
         <div className="main-container">
@@ -27,8 +35,8 @@ class Home extends Component {
           <DataViz 
             selectedControl = {this.state.selectedControl}
           />
+          {this.renderPopUp()}
         </div>
-
     );
   }
 }
