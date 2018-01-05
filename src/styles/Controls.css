@@ -32,8 +32,16 @@
   align-items: center;
   width: 33.3%;
   height: 33.3%;
-  transition: all .3s;
+  transition: background-color .3s;
   cursor: pointer;
+  padding: 1px;
+  box-sizing: border-box;
+}
+
+.selected-button {
+  padding: 0px;
+  background-color: #DEE3EB;
+  border: 1px solid #1a0248;
 }
 
 .button:hover {

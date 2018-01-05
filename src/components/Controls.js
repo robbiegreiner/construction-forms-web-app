@@ -10,7 +10,7 @@ class Controls extends Component {
     return buttonContent.map((buttonName, index) => {
       return (
         <div 
-          className="button" 
+          className={ this.props.selectedControl === buttonName ? 'button selected-button' : 'button' }
           onClick={() => this.props.selectControl(buttonName)}
           key={"button-type-" + buttonName + index}
         >

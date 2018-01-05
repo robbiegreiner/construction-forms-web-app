@@ -8,8 +8,9 @@ class DataViz extends Component {
   constructor() {
     super();
     this.state = {
-      projects: '',
-      employees: ''
+      projects: {},
+      employees: {},
+      hotworkForms: {},
     }
   }
 
@@ -22,12 +23,22 @@ class DataViz extends Component {
       .then(employees => employees.json())
       .then(employees => this.setState({ employees }))
       .catch(error => { throw error; });
+    fetch('http://localhost:4000/api/v1/forms/hotwork')
+      .then(hotworkForms => hotworkForms.json())
+      .then(hotworkForms => this.setState({ hotworkForms }))
+      .catch(error => { throw error; });
   }
 
   render() {
     return (
         <div className="data-viz">
-          <h1>Data Viz</h1>
+          {
+            !this.props.selectedControl && 
+              <div className="welcome">
+                <h1>Welcome to Construction Forms!</h1>
+                <div className="logo"></div>
+              </div>
+          }
           <div className="data-viz-cards">
             { 
               this.props.selectedControl === 'Projects' &&
@@ -48,6 +59,28 @@ class DataViz extends Component {
                       header={employee.name}
                       body={employee.position}
                       employeeInfo={[employee.phone, employee.email]}
+                    />
+                })
+            }
+            {
+              this.props.selectedControl === 'All Reports' && 
+                this.state.hotworkForms.map((form, index) => {
+                  return <Card 
+                      key={'hotworkForm' + index}
+                      header={'Hotwork Permit ' + form.employee_name}
+                      formDetails={[
+                        form.employee_email,
+                        form.project_id,
+                        form.company,
+                        form.date,
+                        form.firewatchRequirement,
+                        form.timeStart,
+                        form.finishTime,
+                        form.areaInspected,
+                        form.fireExtinguisher,
+                        form.flammablesRemoved,
+                        form.sprinklerHeadsProtected,
+                      ]}
                     />
                 })
             }

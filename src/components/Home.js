@@ -11,8 +11,15 @@ class Home extends Component {
 
     this.state = {
       selectedControl: '',
-      newEmployee: {},
+      newEmployee: {
+        employee_name: '',
+        employee_position: '',
+        employee_phone: '',
+        employee_email: '',
+      },
       newProject: { 
+        project_name: '',
+        project_location: '',
         project_public: false,
         project_union: false,
       },
@@ -20,7 +27,9 @@ class Home extends Component {
   }
 
   selectControl = (control) => {
-    this.setState({selectedControl: control});
+    this.state.selectedControl === control ?
+      this.setState({selectedControl: ''}) :
+      this.setState({selectedControl: control})
   }
 
   handleEmployeeChange = (event) => {
@@ -199,6 +208,7 @@ class Home extends Component {
         <div className="main-container">
           <Controls 
             selectControl = {this.selectControl}
+            selectedControl = {this.state.selectedControl}
           />
           <DataViz 
             selectedControl = {this.state.selectedControl}
