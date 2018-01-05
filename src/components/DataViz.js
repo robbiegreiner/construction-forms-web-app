@@ -74,8 +74,6 @@ class DataViz extends Component {
                         form.company,
                         form.date,
                         form.firewatchRequirement,
-                        form.timeStart,
-                        form.finishTime,
                         form.areaInspected,
                         form.fireExtinguisher,
                         form.flammablesRemoved,

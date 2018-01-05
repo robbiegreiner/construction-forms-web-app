@@ -29,12 +29,10 @@ class Card extends Component {
               <p>Company: {this.props.formDetails[2]}</p>
               <p>Date: {this.props.formDetails[3]}</p>
               <p>Firewatch Requirement: {this.props.formDetails[4]}</p>
-              <p>Start Time: {this.props.formDetails[5]}</p>
-              <p>End Time: {this.props.formDetails[6]}</p>
-              <p>Area Inspected: {this.props.formDetails[7]}</p>
-              <p>Fire Extinguisher: {this.props.formDetails[8]}</p>
-              <p>Flammables Removed: {this.props.formDetails[9]}</p>
-              <p>Sprinkler Heads Protected: {this.props.formDetails[10]}</p>
+              <p>Area Inspected: {this.props.formDetails[5] ? 'Yes' : 'No'}</p>
+              <p>Fire Extinguisher: {this.props.formDetails[6] ? 'Yes' : 'No'}</p>
+              <p>Flammables Removed: {this.props.formDetails[7]? 'Yes' : 'No'}</p>
+              <p>Sprinkler Heads Protected: {this.props.formDetails[8] ? 'Yes' : 'No'}</p>
             </div>
         }
       </div>
