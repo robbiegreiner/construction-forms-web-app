@@ -65,10 +65,8 @@ class DataViz extends Component {
             {
               this.props.selectedControl === 'All Reports' && 
                 this.state.hotworkForms.map((form, index) => {
-                  const sigImg = form.signature;
-                  const newImg = new Image();
-                  newImg.src = sigImg
-                  console.log(newImg)
+                  const sigImg = new Image();
+                  sigImg.src = form.signature;
                   return <Card 
                       key={'hotworkForm' + index}
                       header={'Hotwork Permit ' + form.employee_name}
@@ -83,7 +81,7 @@ class DataViz extends Component {
                         form.flammablesRemoved,
                         form.sprinklerHeadsProtected,
                         form.signature,
-                        newImg,
+                        sigImg,
                       ]}
                     />
                 })
