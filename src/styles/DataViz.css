@@ -1,6 +1,6 @@
 .data-viz {
   width: 50%;
-  background-image: linear-gradient(to top left, #9419FF 0%, #33146F 100%);
+  background-image: linear-gradient(to top left, #c5a7fd 0%, #1a0248 100%);
   /* background-color: #9419FF; */
   display: flex;
   flex-direction: column;
@@ -8,7 +8,8 @@
 }
 
 .data-viz h1 {
-  margin-top: 20px;
+  color: #F2F4F7;
+  padding: 20px;
 }
 
 .data-viz-cards {
@@ -19,8 +20,25 @@
 }
 
 .card {
-  width: 32%;
+  width: calc(33% - 10px);
   box-sizing: border-box;
   padding: 5px;
-  border: 1px solid pink;
+  margin: 5px;
+  background-color: #F2F4F7;
+  border-radius: 4px;
+}
+
+.card h5 {
+  font-size: 16px;
+}
+
+.card p {
+  font-size: 12px;
+}
+
+.welcome {
+  height: 100%; 
+  display: flex;
+  text-align: center;
+  align-items: center;
 }

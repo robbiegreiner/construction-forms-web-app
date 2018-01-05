@@ -5,12 +5,12 @@ import '../styles/Controls.css';
 class Controls extends Component {
 
   generateButtons() {
-    const buttonContent = ['Projects', 'Employees', 'View All Reports', 'View Reports By Project', 'View Reports By Employee', 'Add Employee', 'Add Project', 'Placeholder', 'Placeholder']
+    const buttonContent = ['Projects', 'Employees', 'All Reports', 'Reports By Project', 'Reports By Employee', 'Add Employee', 'Add Project', 'Placeholder', 'Placeholder']
 
     return buttonContent.map((buttonName, index) => {
       return (
         <div 
-          className="button" 
+          className={ this.props.selectedControl === buttonName ? 'button selected-button' : 'button' }
           onClick={() => this.props.selectControl(buttonName)}
           key={"button-type-" + buttonName + index}
         >

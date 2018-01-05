@@ -20,21 +20,28 @@
 .button-container {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 5% 10% 5%;
-  height: 90%;
-  width: 90%;
+  height: 100%;
+  padding: 10px;
 }
 
 .button {
   border-radius: 4px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-around;
   align-items: center;
   width: 33.3%;
   height: 33.3%;
-  transition: all .3s;
+  transition: background-color .3s;
   cursor: pointer;
+  padding: 1px;
+  box-sizing: border-box;
+}
+
+.selected-button {
+  padding: 0px;
+  background-color: #DEE3EB;
+  border: 1px solid #1a0248;
 }
 
 .button:hover {
@@ -42,16 +49,13 @@
 }
 
 .circle-icon {
-  height: 100px;
-  width: 100px;
+  min-height: 82px;
+  width: 82px;
   border-radius: 100%;
   background-color: #FFFFFF;
-  margin-bottom: 30px;
   box-shadow: 5px 5px 10px -9px rgba(0,0,0,0.75)
 }
 
 .button-name {
-  margin-bottom: 5px;
   text-align: center;
-  height: 38px;
 }
