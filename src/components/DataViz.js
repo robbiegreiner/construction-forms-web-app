@@ -78,6 +78,7 @@ class DataViz extends Component {
                         form.fireExtinguisher,
                         form.flammablesRemoved,
                         form.sprinklerHeadsProtected,
+                        form.signature,
                       ]}
                     />
                 })
