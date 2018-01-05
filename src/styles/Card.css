@@ -13,3 +13,8 @@
 .form-card p {
   font-size: 12px;
 }
+
+.form-card img {
+  width: 66%;
+  height: 33%;
+}
