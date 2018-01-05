@@ -23,7 +23,7 @@ class Card extends Component {
         }
         {
           this.props.formDetails && 
-            <div class="form-card">
+            <div className="form-card">
               <p>Employee Email: {this.props.formDetails[0]}</p>
               <p>Project ID: {this.props.formDetails[1]}</p>
               <p>Company: {this.props.formDetails[2]}</p>
