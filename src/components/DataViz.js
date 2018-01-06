@@ -69,7 +69,7 @@ class DataViz extends Component {
                   sigImg.src = form.signature;
                   return <Card 
                       key={'hotworkForm' + index}
-                      header={'Hotwork Permit ' + form.employee_name}
+                      header={'Hotwork Permit - ' + form.employee_name}
                       formDetails={[
                         form.employee_email,
                         form.project_id,
