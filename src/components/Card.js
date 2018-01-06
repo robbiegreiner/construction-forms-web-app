@@ -17,24 +17,23 @@ class Card extends Component {
         {
           this.props.employeeInfo &&
             <div>
-              <p>Phone: {this.props.employeeInfo[0]}</p>
-              <p>Email: {this.props.employeeInfo[1]}</p>
+              <p>{this.props.employeeInfo[0]}</p>
+              <p>{this.props.employeeInfo[1]}</p>
             </div>
         }
         {
           this.props.formDetails && 
-            <div class="form-card">
+            <div className="form-card">
               <p>Employee Email: {this.props.formDetails[0]}</p>
               <p>Project ID: {this.props.formDetails[1]}</p>
               <p>Company: {this.props.formDetails[2]}</p>
               <p>Date: {this.props.formDetails[3]}</p>
               <p>Firewatch Requirement: {this.props.formDetails[4]}</p>
-              <p>Start Time: {this.props.formDetails[5]}</p>
-              <p>End Time: {this.props.formDetails[6]}</p>
-              <p>Area Inspected: {this.props.formDetails[7]}</p>
-              <p>Fire Extinguisher: {this.props.formDetails[8]}</p>
-              <p>Flammables Removed: {this.props.formDetails[9]}</p>
-              <p>Sprinkler Heads Protected: {this.props.formDetails[10]}</p>
+              <p>Area Inspected: {this.props.formDetails[5] ? 'Yes' : 'No'}</p>
+              <p>Fire Extinguisher: {this.props.formDetails[6] ? 'Yes' : 'No'}</p>
+              <p>Flammables Removed: {this.props.formDetails[7]? 'Yes' : 'No'}</p>
+              <p>Sprinkler Heads Protected: {this.props.formDetails[8] ? 'Yes' : 'No'}</p>
+              <img src={this.props.formDetails[9]}/>
             </div>
         }
       </div>

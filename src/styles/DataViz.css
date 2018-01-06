@@ -1,15 +1,18 @@
 .data-viz {
   width: 50%;
-  background-image: linear-gradient(to top left, #c5a7fd 0%, #1a0248 100%);
+  background-image: linear-gradient(to top, #e8c712 35%, #11012f 100%);
   /* background-color: #9419FF; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 0px 4px 4px 0px;
+  padding: 5px;
 }
 
 .data-viz h1 {
   color: #F2F4F7;
   padding: 20px;
+  margin-top: 19px;
 }
 
 .data-viz-cards {
@@ -26,6 +29,7 @@
   margin: 5px;
   background-color: #F2F4F7;
   border-radius: 4px;
+  box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.19);
 }
 
 .card h5 {
@@ -34,11 +38,13 @@
 
 .card p {
   font-size: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
 }
 
 .welcome {
   height: 100%; 
-  display: flex;
   text-align: center;
-  align-items: center;
 }

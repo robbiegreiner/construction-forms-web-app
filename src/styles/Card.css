@@ -8,8 +8,14 @@
 
 .form-card h5 {
   font-size: 16px;
+  text-align: center;
 }
 
 .form-card p {
   font-size: 12px;
+}
+
+.form-card img {
+  margin-top: 20px;
+  width: 200px;
 }
