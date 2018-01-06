@@ -17,8 +17,8 @@ class Card extends Component {
         {
           this.props.employeeInfo &&
             <div>
-              <p>Phone: {this.props.employeeInfo[0]}</p>
-              <p>Email: {this.props.employeeInfo[1]}</p>
+              <p>{this.props.employeeInfo[0]}</p>
+              <p>{this.props.employeeInfo[1]}</p>
             </div>
         }
         {
