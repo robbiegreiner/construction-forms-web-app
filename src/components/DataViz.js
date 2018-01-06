@@ -8,9 +8,10 @@ class DataViz extends Component {
   constructor() {
     super();
     this.state = {
-      projects: {},
-      employees: {},
-      hotworkForms: {},
+      projects: [],
+      employees: [],
+      hotworkForms: [],
+      dataVizControl: null,
     }
   }
 
@@ -27,6 +28,10 @@ class DataViz extends Component {
       .then(hotworkForms => hotworkForms.json())
       .then(hotworkForms => this.setState({ hotworkForms }))
       .catch(error => { throw error; });
+  }
+
+  reportsBySelectionHandler = (selection) => {
+    this.setState({ dataVizControl: selection })
   }
 
   render() {
@@ -85,6 +90,97 @@ class DataViz extends Component {
                       ]}
                     />
                 })
+            }
+            {
+              this.props.selectedControl === 'Reports By Project' &&
+                <div>
+                  <h2 className="data-viz-cards-header">Select a project</h2>
+                  <div className="data-viz-cards">
+                  {
+                    this.state.projects.map((project, index) => {
+                      return <Card 
+                        header={project.name}
+                        body={<button onClick={() => this.reportsBySelectionHandler('Reports By Project - ' + project.id)}>Select</button>}
+                        projectId={project.id}
+                        key={'project' + index}
+                        reportsBySelectionHandler={this.reportsBySelectionHandler}
+                      />
+                    })
+                  }
+                  {
+                    this.state.dataVizControl &&
+                    this.state.hotworkForms.map((form, index) => {
+                      if (parseInt(this.state.dataVizControl.split(' - ')[1]) === form.project_id) {
+                        const sigImg = new Image();
+                        sigImg.src = form.signature;
+                        return <Card
+                          key={'hotworkForm' + index}
+                          header={'Hotwork Permit - ' + form.employee_name}
+                          formDetails={[
+                            form.employee_email,
+                            form.project_id,
+                            form.company,
+                            form.date,
+                            form.firewatchRequirement,
+                            form.areaInspected,
+                            form.fireExtinguisher,
+                            form.flammablesRemoved,
+                            form.sprinklerHeadsProtected,
+                            form.signature,
+                            sigImg,
+                          ]}
+                        />
+                      }
+                    })
+                  }
+                </div>
+              </div>
+            }
+            {
+              this.props.selectedControl === 'Reports By Employee' &&
+                <div>
+                  <h2 className="data-viz-cards-header">Select an employee</h2>
+                  <div className="data-viz-cards">
+                  {
+                    this.state.employees.map((employee, index) => {
+                      return <Card 
+                        header={employee.name}
+                        body={<button onClick={() => this.reportsBySelectionHandler('Reports By Employee - ' + employee.id)}>Select</button>}
+                        employeeId={employee.id}
+                        key={'employee' + index}
+                        reportsBySelectionHandler={this.reportsBySelectionHandler}
+                      />
+                    })
+                  }
+                  {
+                    this.state.dataVizControl &&
+                    this.state.hotworkForms.map((form, index) => {
+                      console.log(this.state.dataVizControl.split(' - ')[1], form.employee_id)
+                      if (this.state.dataVizControl.split(' - ')[1] === form.employee_id) {
+                        const sigImg = new Image();
+                        sigImg.src = form.signature;
+                        return <Card
+                          key={'hotworkForm' + index}
+                          header={'Hotwork Permit - ' + form.employee_name}
+                          formDetails={[
+                            form.employee_email,
+                            form.project_id,
+                            form.company,
+                            form.date,
+                            form.firewatchRequirement,
+                            form.areaInspected,
+                            form.fireExtinguisher,
+                            form.flammablesRemoved,
+                            form.sprinklerHeadsProtected,
+                            form.signature,
+                            sigImg,
+                          ]}
+                        />
+                      }
+                    })
+                  }
+                </div>
+              </div>
             }
           </div>
         </div>

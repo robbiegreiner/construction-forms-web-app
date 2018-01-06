@@ -22,6 +22,10 @@
   overflow: scroll;
 }
 
+.data-viz-cards-header {
+  color: #F2F4F7;
+}
+
 .card {
   width: calc(33% - 10px);
   box-sizing: border-box;
@@ -34,6 +38,11 @@
 
 .card h5 {
   font-size: 16px;
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 75%;
 }
 
 .card p {
@@ -42,6 +51,12 @@
   overflow: hidden;
   width: 100%;
   white-space: nowrap;
+}
+
+.card .report-by-selection {
+  float: right;
+  width: initial;
+  display: inline;
 }
 
 .welcome {

@@ -6,7 +6,7 @@ class Card extends Component {
     return (
       <div className={ this.props.formDetails ? "form-card" : "card" }>
         <h5>{this.props.header}</h5>
-        <p>{this.props.body}</p>
+        <p className={ this.props.reportsBySelectionHandler ? "report-by-selection" : null }>{this.props.body}</p>
         {
           this.props.projectInfo &&
             <div>
