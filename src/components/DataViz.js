@@ -14,6 +14,7 @@ class DataViz extends Component {
       projects: [],
       employees: [],
       hotworkForms: [],
+      pretaskForms: [],
       dataVizControl: null,
       selectedInfo: {}
     }
@@ -31,6 +32,10 @@ class DataViz extends Component {
     fetch('http://localhost:4000/api/v1/forms/hotwork')
       .then(hotworkForms => hotworkForms.json())
       .then(hotworkForms => this.setState({ hotworkForms }))
+      .catch(error => { throw error; });
+    fetch('http://localhost:4000/api/v1/forms/pretask')
+      .then(pretaskForms => pretaskForms.json())
+      .then(pretaskForms => this.setState({ pretaskForms }))
       .catch(error => { throw error; });
   }
 
@@ -134,12 +139,14 @@ class DataViz extends Component {
             }
             {
               this.props.selectedControl === 'All Reports' &&
-                this.state.hotworkForms.map((form, index) => {
+                this.state.hotworkForms.concat(this.state.pretaskForms).map((form, index) => {
                   const sigImg = new Image();
                   sigImg.src = form.signature;
                   return <Card
-                      key={'hotworkForm' + index}
-                      header={'Hotwork Permit - ' + form.employee_name}
+                      key={'form' + index}
+                      header={
+                        Object.keys(form).includes('firewatchRequirement') ? 'Hotwork Permit - ' + form.employee_name : 'Pretask Permit - ' + form.employee_name
+                      }
                       cardClickHandler={this.cardClickHandler}
                       formDetails={[
                         form.employee_email,
@@ -166,13 +173,15 @@ class DataViz extends Component {
                     this.state.dataVizControl &&
                       <div className="selected-div">
                         {
-                          this.state.hotworkForms.map((form, index) => {
+                          this.state.hotworkForms.concat(this.state.pretaskForms).map((form, index) => {
                             if (parseInt(this.state.dataVizControl.split(' - ')[1]) === form.project_id) {
                               const sigImg = new Image();
                               sigImg.src = form.signature;
                               return <Card
-                                key={'hotworkForm' + index}
-                                header={'Hotwork Permit - ' + form.employee_name}
+                                key={'form' + index}
+                                header={
+                                  Object.keys(form).includes('firewatchRequirement') ? 'Hotwork Permit - ' + form.employee_name : 'Pretask Permit - ' + form.employee_name
+                                }
                                 cardClickHandler={this.mockCardClickHandler}
                                 formDetails={[
                                   form.employee_email,
@@ -217,13 +226,15 @@ class DataViz extends Component {
                     this.state.dataVizControl &&
                       <div className="selected-div">
                         {
-                          this.state.hotworkForms.map((form, index) => {
+                          this.state.hotworkForms.concat(this.state.pretaskForms).map((form, index) => {
                             if (this.state.dataVizControl.split(' - ')[1] === form.employee_id) {
                               const sigImg = new Image();
                               sigImg.src = form.signature;
                               return <Card
-                                key={'hotworkForm' + index}
-                                header={'Hotwork Permit - ' + form.employee_name}
+                                key={'form' + index}
+                                header={
+                                  Object.keys(form).includes('firewatchRequirement') ? 'Hotwork Permit - ' + form.employee_name : 'Pretask Permit - ' + form.employee_name
+                                }
                                 cardClickHandler={this.mockCardClickHandler}
                                 formDetails={[
                                   form.employee_email,
