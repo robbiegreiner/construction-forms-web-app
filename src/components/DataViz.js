@@ -41,7 +41,7 @@ class DataViz extends Component {
 
   renderSelected = (selectedInfo) => {
      return (
-       <div>
+       <div className="selected-div">
          {
            selectedInfo.employeeInfo &&
              <div>
