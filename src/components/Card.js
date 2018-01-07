@@ -4,7 +4,10 @@ import '../styles/Card.css';
 class Card extends Component {
   render() {
     return (
-      <div className={ this.props.formDetails ? "form-card" : "card" }>
+      <div 
+        className={ this.props.formDetails ? "form-card" : "card" }
+        onClick={() => this.props.cardClickHandler(this.props)}
+      >
         <h5>{this.props.header}</h5>
         <p className={ this.props.reportsBySelectionHandler ? "report-by-selection" : null }>{this.props.body}</p>
         {

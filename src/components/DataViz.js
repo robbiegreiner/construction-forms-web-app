@@ -12,6 +12,7 @@ class DataViz extends Component {
       employees: [],
       hotworkForms: [],
       dataVizControl: null,
+      selectedInfo: {}
     }
   }
 
@@ -34,6 +35,29 @@ class DataViz extends Component {
     this.setState({ dataVizControl: selection })
   }
 
+  cardClickHandler = (selectedInfo) => {
+    this.setState({ selectedInfo })
+  } 
+
+  renderSelected = (selectedInfo) => {
+    return (
+      <div>
+        {
+          selectedInfo.employeeInfo &&
+            <div>hepl</div>
+        }
+        {
+          selectedInfo.projectInfo &&
+            <div>asfd</div>
+        }
+        {
+          selectedInfo.formDetails &&
+            <div>asdf</div>
+        }
+      </div>
+    )
+  }
+
   render() {
     return (
         <div className="data-viz">
@@ -44,6 +68,7 @@ class DataViz extends Component {
                 <div className="logo"></div>
               </div>
           }
+          { this.renderSelected(this.state.selectedInfo) }
           <div className="data-viz-cards">
             { 
               this.props.selectedControl === 'Projects' &&
@@ -53,6 +78,7 @@ class DataViz extends Component {
                       header={project.name}
                       body={project.location}
                       projectInfo={[project.public, project.union]}
+                      cardClickHandler={this.cardClickHandler}
                     />
                 })
             }
@@ -64,6 +90,7 @@ class DataViz extends Component {
                       header={employee.name}
                       body={employee.position}
                       employeeInfo={[employee.phone, employee.email]}
+                      cardClickHandler={this.cardClickHandler}
                     />
                 })
             }
@@ -75,6 +102,7 @@ class DataViz extends Component {
                   return <Card 
                       key={'hotworkForm' + index}
                       header={'Hotwork Permit - ' + form.employee_name}
+                      cardClickHandler={this.cardClickHandler}
                       formDetails={[
                         form.employee_email,
                         form.project_id,
@@ -103,6 +131,7 @@ class DataViz extends Component {
                         body={<button onClick={() => this.reportsBySelectionHandler('Reports By Project - ' + project.id)}>Select</button>}
                         projectId={project.id}
                         key={'project' + index}
+                        cardClickHandler={this.cardClickHandler}
                         reportsBySelectionHandler={this.reportsBySelectionHandler}
                       />
                     })
@@ -116,6 +145,7 @@ class DataViz extends Component {
                         return <Card
                           key={'hotworkForm' + index}
                           header={'Hotwork Permit - ' + form.employee_name}
+                          cardClickHandler={this.cardClickHandler}
                           formDetails={[
                             form.employee_email,
                             form.project_id,
@@ -149,6 +179,7 @@ class DataViz extends Component {
                         employeeId={employee.id}
                         key={'employee' + index}
                         reportsBySelectionHandler={this.reportsBySelectionHandler}
+                        cardClickHandler={this.cardClickHandler}
                       />
                     })
                   }
@@ -162,6 +193,7 @@ class DataViz extends Component {
                         return <Card
                           key={'hotworkForm' + index}
                           header={'Hotwork Permit - ' + form.employee_name}
+                          cardClickHandler={this.cardClickHandler}
                           formDetails={[
                             form.employee_email,
                             form.project_id,
