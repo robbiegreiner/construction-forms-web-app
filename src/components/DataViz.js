@@ -39,6 +39,12 @@ class DataViz extends Component {
     this.setState({ selectedInfo })
   }
 
+  mockCardClickHandler = (selectedInfo) => null;
+
+  closeSelected = () => {
+    this.setState({ selectedInfo: {} });
+  }
+
   renderSelected = (selectedInfo) => {
      return (
        <div className="selected-div">
@@ -49,6 +55,7 @@ class DataViz extends Component {
                <p>{selectedInfo.body}</p>
                <p>{selectedInfo.employeeInfo[0]}</p>
                <p>{selectedInfo.employeeInfo[1]}</p>
+               <button onClick={this.closeSelected}>X</button>
              </div>
          }
          {
@@ -56,8 +63,9 @@ class DataViz extends Component {
            <div>
              <h5>{selectedInfo.header}</h5>
              <p>{selectedInfo.body}</p>
-             <p>{selectedInfo.projectInfo[0]}</p>
-             <p>{selectedInfo.projectInfo[1]}</p>
+             <p>Public: {selectedInfo.projectInfo[0] ? 'Yes' : 'No'}</p>
+             <p>Union: {selectedInfo.projectInfo[1] ? 'Yes' : 'No'}</p>
+             <button onClick={this.closeSelected}>X</button>
            </div>
          }
          {
@@ -75,6 +83,7 @@ class DataViz extends Component {
                <p>Flammables Removed: {selectedInfo.formDetails[7]? 'Yes' : 'No'}</p>
                <p>Sprinkler Heads Protected: {selectedInfo.formDetails[8] ? 'Yes' : 'No'}</p>
                <img src={selectedInfo.formDetails[9]}/>
+               <button onClick={this.closeSelected}>X</button>
              </div>
          }
        </div>
@@ -158,7 +167,7 @@ class DataViz extends Component {
                               return <Card
                                 key={'hotworkForm' + index}
                                 header={'Hotwork Permit - ' + form.employee_name}
-                                cardClickHandler={this.cardClickHandler}
+                                cardClickHandler={this.mockCardClickHandler}
                                 formDetails={[
                                   form.employee_email,
                                   form.project_id,
@@ -209,7 +218,7 @@ class DataViz extends Component {
                               return <Card
                                 key={'hotworkForm' + index}
                                 header={'Hotwork Permit - ' + form.employee_name}
-                                cardClickHandler={this.cardClickHandler}
+                                cardClickHandler={this.mockCardClickHandler}
                                 formDetails={[
                                   form.employee_email,
                                   form.project_id,
