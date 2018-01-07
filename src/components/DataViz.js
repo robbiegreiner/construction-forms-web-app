@@ -46,6 +46,9 @@ class DataViz extends Component {
   }
 
   renderSelected = (selectedInfo) => {
+     if (this.props.selectedControl === '' && Object.keys(selectedInfo).length !== 0) {
+       this.setState({ selectedInfo: {} })
+     }
      return (
        <div className="selected-div">
          {
