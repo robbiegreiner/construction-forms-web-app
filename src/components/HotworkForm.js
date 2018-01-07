@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/Form.css';
 
-class Form extends Component {
+class HotworkForm extends Component {
   constructor() {
     super();
     this.state = {
@@ -48,7 +48,7 @@ class Form extends Component {
 
   render() {
     return (
-      <form>
+      <form className="hotwork-template">
         <h1>HOT WORK PERMIT</h1>
         <h3>
           This Hot Work Permit is required for any temporary operation involving open flames
@@ -122,4 +122,4 @@ class Form extends Component {
   }
 }
 
-export default Form;
+export default HotworkForm;

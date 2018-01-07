@@ -30,6 +30,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  flex-grow: 1;
   width: 33.3%;
   height: 33.3%;
   transition: background-color .3s;
@@ -48,14 +49,46 @@
   background-color: #DEE3EB;
 }
 
+.bg-0 {
+  background: url('../assets/projects-icon.png') no-repeat;
+}
+
+.bg-1 {
+  background: url('../assets/employees-icon.png') no-repeat;
+}
+
+.bg-2 {
+  background: url('../assets/form-icon.png') no-repeat;
+}
+
+.bg-3 {
+  background: url('../assets/reports-project-icon.png') no-repeat;
+}
+
+.bg-4 {
+  background: url('../assets/reports-employee-icon.png') no-repeat;
+}
+
+.bg-7, .bg-6 {
+  background: url('../assets/plus-icon.png') no-repeat;
+}
+
+.bg-5 {
+  background: url('../assets/temp-icon.png') no-repeat;
+}
+
 .circle-icon {
+  background-size: 50%;
+  background-position-x: center;
+  background-position-y: center;
   min-height: 82px;
   width: 82px;
   border-radius: 100%;
-  background-color: #FFFFFF;
-  box-shadow: 5px 5px 10px -9px rgba(0,0,0,0.75)
+  box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.19);
+  background-color: #ffffff;
 }
 
 .button-name {
+  height: 32px;
   text-align: center;
 }

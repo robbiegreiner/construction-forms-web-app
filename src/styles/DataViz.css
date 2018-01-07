@@ -1,15 +1,24 @@
+.logo {
+  background: url('../assets/cf-logo.png') no-repeat;
+  width: 51%;
+  height: 50%;
+  margin: auto;
+}
+
 .data-viz {
   width: 50%;
-  background-image: linear-gradient(to top left, #c5a7fd 0%, #1a0248 100%);
+  background-image: linear-gradient(to top, #e8c712 35%, #11012f 100%);
   /* background-color: #9419FF; */
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 0px 4px 4px 0px;
+  padding: 5px;
 }
 
 .data-viz h1 {
   color: #F2F4F7;
-  padding: 20px;
+  padding: 40px;
 }
 
 .data-viz-cards {
@@ -19,6 +28,10 @@
   overflow: scroll;
 }
 
+.data-viz-cards-header {
+  color: #F2F4F7;
+}
+
 .card {
   width: calc(33% - 10px);
   box-sizing: border-box;
@@ -26,19 +39,62 @@
   margin: 5px;
   background-color: #F2F4F7;
   border-radius: 4px;
+  box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.19);
 }
 
 .card h5 {
   font-size: 16px;
+  display: inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 75%;
 }
 
 .card p {
   font-size: 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.card .report-by-selection {
+  float: right;
+  width: initial;
+  display: inline;
 }
 
 .welcome {
   height: 100%; 
-  display: flex;
   text-align: center;
-  align-items: center;
+}
+
+.selected-div {
+  width: 100%;
+}
+
+.selected-div div {
+  background-color: #f2f4f7;
+  height: 40vh;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  padding: 5px 50px;
+  margin: 5px;
+  border-radius: 4px;
+  box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.19);
+}
+
+.selected-div div p {
+  font-size: 16px;
+}
+
+.selected-div div img {
+  margin-top: 20px;
+  width: 200px;
+}
+
+.selected-div div h5 {
+  font-size: 24px;
 }
