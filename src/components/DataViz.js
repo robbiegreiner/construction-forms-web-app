@@ -37,32 +37,55 @@ class DataViz extends Component {
 
   cardClickHandler = (selectedInfo) => {
     this.setState({ selectedInfo })
-  } 
+  }
 
   renderSelected = (selectedInfo) => {
-    return (
-      <div>
-        {
-          selectedInfo.employeeInfo &&
-            <div>hepl</div>
-        }
-        {
-          selectedInfo.projectInfo &&
-            <div>asfd</div>
-        }
-        {
-          selectedInfo.formDetails &&
-            <div>asdf</div>
-        }
-      </div>
-    )
-  }
+     return (
+       <div>
+         {
+           selectedInfo.employeeInfo &&
+             <div>
+               <h5>{selectedInfo.header}</h5>
+               <p>{selectedInfo.body}</p>
+               <p>{selectedInfo.employeeInfo[0]}</p>
+               <p>{selectedInfo.employeeInfo[1]}</p>
+             </div>
+         }
+         {
+           selectedInfo.projectInfo &&
+           <div>
+             <h5>{selectedInfo.header}</h5>
+             <p>{selectedInfo.body}</p>
+             <p>{selectedInfo.projectInfo[0]}</p>
+             <p>{selectedInfo.projectInfo[1]}</p>
+           </div>
+         }
+         {
+           selectedInfo.formDetails &&
+             <div>
+               <h5>{selectedInfo.header}</h5>
+               <p>{selectedInfo.body}</p>
+               <p>Employee Email: {selectedInfo.formDetails[0]}</p>
+               <p>Project ID: {selectedInfo.formDetails[1]}</p>
+               <p>Company: {selectedInfo.formDetails[2]}</p>
+               <p>Date: {selectedInfo.formDetails[3]}</p>
+               <p>Firewatch Requirement: {selectedInfo.formDetails[4]}</p>
+               <p>Area Inspected: {selectedInfo.formDetails[5] ? 'Yes' : 'No'}</p>
+               <p>Fire Extinguisher: {selectedInfo.formDetails[6] ? 'Yes' : 'No'}</p>
+               <p>Flammables Removed: {selectedInfo.formDetails[7]? 'Yes' : 'No'}</p>
+               <p>Sprinkler Heads Protected: {selectedInfo.formDetails[8] ? 'Yes' : 'No'}</p>
+               <img src={selectedInfo.formDetails[9]}/>
+             </div>
+         }
+       </div>
+     )
+   }
 
   render() {
     return (
         <div className="data-viz">
           {
-            !this.props.selectedControl && 
+            !this.props.selectedControl &&
               <div className="welcome">
                 <h1>Welcome to Construction Forms!</h1>
                 <div className="logo"></div>
@@ -70,10 +93,10 @@ class DataViz extends Component {
           }
           { this.renderSelected(this.state.selectedInfo) }
           <div className="data-viz-cards">
-            { 
+            {
               this.props.selectedControl === 'Projects' &&
                 this.state.projects.map((project, index) => {
-                  return <Card 
+                  return <Card
                       key={'project' + index}
                       header={project.name}
                       body={project.location}
@@ -82,10 +105,10 @@ class DataViz extends Component {
                     />
                 })
             }
-            { 
+            {
               this.props.selectedControl === 'Employees' &&
                 this.state.employees.map((employee, index) => {
-                  return <Card 
+                  return <Card
                       key={'employee' + index}
                       header={employee.name}
                       body={employee.position}
@@ -95,11 +118,11 @@ class DataViz extends Component {
                 })
             }
             {
-              this.props.selectedControl === 'All Reports' && 
+              this.props.selectedControl === 'All Reports' &&
                 this.state.hotworkForms.map((form, index) => {
                   const sigImg = new Image();
                   sigImg.src = form.signature;
-                  return <Card 
+                  return <Card
                       key={'hotworkForm' + index}
                       header={'Hotwork Permit - ' + form.employee_name}
                       cardClickHandler={this.cardClickHandler}
@@ -126,7 +149,7 @@ class DataViz extends Component {
                   <div className="data-viz-cards">
                   {
                     this.state.projects.map((project, index) => {
-                      return <Card 
+                      return <Card
                         header={project.name}
                         body={<button onClick={() => this.reportsBySelectionHandler('Reports By Project - ' + project.id)}>Select</button>}
                         projectId={project.id}
@@ -173,7 +196,7 @@ class DataViz extends Component {
                   <div className="data-viz-cards">
                   {
                     this.state.employees.map((employee, index) => {
-                      return <Card 
+                      return <Card
                         header={employee.name}
                         body={<button onClick={() => this.reportsBySelectionHandler('Reports By Employee - ' + employee.id)}>Select</button>}
                         employeeId={employee.id}
