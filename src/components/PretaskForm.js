@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/Form.css';
 
-class HotworkForm extends Component {
+class PretaskForm extends Component {
   constructor() {
     super();
     this.state = {
@@ -49,11 +49,8 @@ class HotworkForm extends Component {
   render() {
     return (
       <form className="hotwork-template">
-        <h1>HOT WORK PERMIT</h1>
+        <h1>PRETASK PERMIT</h1>
         <h3>
-          This Hot Work Permit is required for any temporary operation involving open flames
-          or sparks. This includes, but is not limited to: brazing, cutting, grinding, soldering,
-          thawing pipes, torch-applied roofing, and welding
         </h3>
         <p>Required fields are followed by <abbr title="required">*</abbr></p>
         <section className="general-info">
@@ -122,4 +119,4 @@ class HotworkForm extends Component {
   }
 }
 
-export default HotworkForm;
+export default PretaskForm;
