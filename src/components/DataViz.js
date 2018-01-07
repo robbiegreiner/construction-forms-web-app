@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Card from './Card';
@@ -17,7 +18,7 @@ class DataViz extends Component {
       pretaskForms: [],
       dataVizControl: null,
       selectedInfo: {}
-    }
+    };
   }
 
   componentDidMount() {
@@ -44,13 +45,14 @@ class DataViz extends Component {
   }
 
   reportsBySelectionHandler = (selection) => {
-    this.setState({ dataVizControl: selection })
+    this.setState({ dataVizControl: selection });
   }
 
   cardClickHandler = (selectedInfo) => {
-    this.setState({ selectedInfo })
+    this.setState({ selectedInfo });
   }
 
+// eslint-disable-next-line no-unused-vars
   mockCardClickHandler = (selectedInfo) => null;
 
   closeSelected = () => {
@@ -58,13 +60,13 @@ class DataViz extends Component {
   }
 
   renderSelected = (selectedInfo) => {
-     if (this.props.selectedControl === '' && Object.keys(selectedInfo).length !== 0) {
-       this.setState({ selectedInfo: {} })
-     }
-     return (
-       <div className="selected-div">
-         {
-           selectedInfo.employeeInfo &&
+    if (this.props.selectedControl === '' && Object.keys(selectedInfo).length !== 0) {
+      this.setState({ selectedInfo: {} });
+    }
+    return (
+      <div className="selected-div">
+        {
+          selectedInfo.employeeInfo &&
              <div>
                <h5>{selectedInfo.header}</h5>
                <p>{selectedInfo.body}</p>
@@ -100,79 +102,79 @@ class DataViz extends Component {
                <img src={selectedInfo.formDetails[9]}/>
                <button onClick={this.closeSelected}>X</button>
              </div>
-         }
-       </div>
-     )
-   }
+        }
+      </div>
+    );
+  }
 
   render() {
     return (
-        <div className="data-viz">
+      <div className="data-viz">
+        {
+          !this.props.selectedControl &&
+            <div className="welcome">
+              <h1>Welcome to Construction Forms!</h1>
+              <div className="logo"></div>
+            </div>
+        }
+        { this.renderSelected(this.state.selectedInfo) }
+        <div className="data-viz-cards">
           {
-            !this.props.selectedControl &&
-              <div className="welcome">
-                <h1>Welcome to Construction Forms!</h1>
-                <div className="logo"></div>
-              </div>
+            this.props.selectedControl === 'Projects' &&
+              this.state.projects.map((project, index) => {
+                return <Card
+                  key={'project' + index}
+                  header={project.name}
+                  body={project.location}
+                  projectInfo={[project.public, project.union]}
+                  cardClickHandler={this.cardClickHandler}
+                />;
+              })
           }
-          { this.renderSelected(this.state.selectedInfo) }
-          <div className="data-viz-cards">
-            {
-              this.props.selectedControl === 'Projects' &&
-                this.state.projects.map((project, index) => {
-                  return <Card
-                      key={'project' + index}
-                      header={project.name}
-                      body={project.location}
-                      projectInfo={[project.public, project.union]}
-                      cardClickHandler={this.cardClickHandler}
-                    />
-                })
-            }
-            {
-              this.props.selectedControl === 'Employees' &&
-                this.state.employees.map((employee, index) => {
-                  return <Card
-                      key={'employee' + index}
-                      header={employee.name}
-                      body={employee.position}
-                      employeeInfo={[employee.phone, employee.email]}
-                      cardClickHandler={this.cardClickHandler}
-                    />
-                })
-            }
-            {
-              this.props.selectedControl === 'All Reports' &&
-                this.state.hotworkForms.concat(this.state.pretaskForms).map((form, index) => {
-                  const sigImg = new Image();
-                  sigImg.src = form.signature;
-                  return <Card
-                      key={'form' + index}
-                      header={
-                        Object.keys(form).includes('firewatchRequirement') ? 'Hotwork Permit - ' + form.employee_name : 'Pretask Permit - ' + form.employee_name
-                      }
-                      cardClickHandler={this.cardClickHandler}
-                      formDetails={[
-                        form.employee_email,
-                        form.project_id,
-                        form.company,
-                        form.date,
-                        form.firewatchRequirement,
-                        form.areaInspected,
-                        form.fireExtinguisher,
-                        form.flammablesRemoved,
-                        form.sprinklerHeadsProtected,
-                        form.signature,
-                        sigImg,
-                      ]}
-                    />
-                })
-            }
-            {
-              this.props.selectedControl === 'Reports By Project' &&
-                <div>
-                  <h2 className="data-viz-cards-header">Select a project</h2>
-                  <div className="data-viz-cards">
+          {
+            this.props.selectedControl === 'Employees' &&
+              this.state.employees.map((employee, index) => {
+                return <Card
+                  key={'employee' + index}
+                  header={employee.name}
+                  body={employee.position}
+                  employeeInfo={[employee.phone, employee.email]}
+                  cardClickHandler={this.cardClickHandler}
+                />;
+              })
+          }
+          {
+            this.props.selectedControl === 'All Reports' &&
+              this.state.hotworkForms.concat(this.state.pretaskForms).map((form, index) => {
+                const sigImg = new Image();
+                sigImg.src = form.signature;
+                return <Card
+                  key={'form' + index}
+                  header={
+                    Object.keys(form).includes('firewatchRequirement') ? 'Hotwork Permit - ' + form.employee_name : 'Pretask Permit - ' + form.employee_name
+                  }
+                  cardClickHandler={this.cardClickHandler}
+                  formDetails={[
+                    form.employee_email,
+                    form.project_id,
+                    form.company,
+                    form.date,
+                    form.firewatchRequirement,
+                    form.areaInspected,
+                    form.fireExtinguisher,
+                    form.flammablesRemoved,
+                    form.sprinklerHeadsProtected,
+                    form.signature,
+                    sigImg
+                  ]}
+                />;
+              })
+          }
+          {
+            this.props.selectedControl === 'Reports By Project' &&
+              <div>
+                <h2 className="data-viz-cards-header">Select a project</h2>
+                <div className="data-viz-cards">
                   {
                     this.state.dataVizControl &&
                       <div className="selected-div">
@@ -198,9 +200,9 @@ class DataViz extends Component {
                                   form.flammablesRemoved,
                                   form.sprinklerHeadsProtected,
                                   form.signature,
-                                  sigImg,
+                                  sigImg
                                 ]}
-                              />
+                              />;
                             }
                           })
                         }
@@ -215,17 +217,17 @@ class DataViz extends Component {
                         key={'project' + index}
                         cardClickHandler={this.cardClickHandler}
                         reportsBySelectionHandler={this.reportsBySelectionHandler}
-                      />
+                      />;
                     })
                   }
                 </div>
               </div>
-            }
-            {
-              this.props.selectedControl === 'Reports By Employee' &&
-                <div>
-                  <h2 className="data-viz-cards-header">Select an employee</h2>
-                  <div className="data-viz-cards">
+          }
+          {
+            this.props.selectedControl === 'Reports By Employee' &&
+              <div>
+                <h2 className="data-viz-cards-header">Select an employee</h2>
+                <div className="data-viz-cards">
                   {
                     this.state.dataVizControl &&
                       <div className="selected-div">
@@ -251,13 +253,13 @@ class DataViz extends Component {
                                   form.flammablesRemoved,
                                   form.sprinklerHeadsProtected,
                                   form.signature,
-                                  sigImg,
+                                  sigImg
                                 ]}
-                              />
+                              />;
                             }
                           })
                         }
-                    </div>
+                      </div>
                   }
                   {
                     this.state.employees.map((employee, index) => {
@@ -268,21 +270,21 @@ class DataViz extends Component {
                         key={'employee' + index}
                         reportsBySelectionHandler={this.reportsBySelectionHandler}
                         cardClickHandler={this.cardClickHandler}
-                      />
+                      />;
                     })
                   }
                 </div>
               </div>
-            }
-            {
-              this.props.selectedControl === 'All Forms' &&
-                <div className="all-forms">
-                  <HotworkForm />
-                  <PretaskForm />
-                </div>
-            }
-          </div>
+          }
+          {
+            this.props.selectedControl === 'All Forms' &&
+              <div className="all-forms">
+                <HotworkForm />
+                <PretaskForm />
+              </div>
+          }
         </div>
+      </div>
 
     );
   }
