@@ -48,7 +48,7 @@ class Form extends Component {
 
   render() {
     return (
-      <form>
+      <form className="hotwork-template">
         <h1>HOT WORK PERMIT</h1>
         <h3>
           This Hot Work Permit is required for any temporary operation involving open flames

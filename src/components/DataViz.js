@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Card from './Card';
+import HotworkForm from './HotworkForm';
 import '../styles/DataViz.css';
 
 class DataViz extends Component {
@@ -255,6 +256,13 @@ class DataViz extends Component {
                   }
                 </div>
               </div>
+            }
+            {
+              this.props.selectedControl === 'All Forms' &&
+                <div className="all-forms">
+                  <HotworkForm />
+                  <HotworkForm />
+                </div>
             }
           </div>
         </div>

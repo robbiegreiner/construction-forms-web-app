@@ -1,18 +1,28 @@
-form {
-  width: 400px;
+.all-forms {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotwork-template {
+  width: 48%;
+  margin: 1%;
+  background-color: #f2f4f7;
   overflow: scroll;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
-form h1 {
+.data-viz-cards .hotwork-template h1 {
   text-align: center;
+  color: black;
 }
 
-form section input {
+.hotwork-template section input {
   width: 99%;
   height: 60px;
 }
 
-form .bool-info input {
+.hotwork-template .bool-info input {
   width: initial;
   vertical-align: middle;
 }
