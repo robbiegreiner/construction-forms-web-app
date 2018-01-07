@@ -21,19 +21,23 @@ class DataViz extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:4000/api/v1/projects')
+    fetch('https://construction-forms-backend.herokuapp.com/api/v1/projects')
+//    fetch('http://localhost:4000/api/v1/projects')
       .then(projects => projects.json())
       .then(projects => this.setState({ projects }))
       .catch(error => { throw error; });
-    fetch('http://localhost:4000/api/v1/employees')
+    fetch('https://construction-forms-backend.herokuapp.com/api/v1/employees')
+//    fetch('http://localhost:4000/api/v1/employees')
       .then(employees => employees.json())
       .then(employees => this.setState({ employees }))
       .catch(error => { throw error; });
-    fetch('http://localhost:4000/api/v1/forms/hotwork')
+    fetch('https://construction-forms-backend.herokuapp.com/api/v1/forms/hotwork')
+//    fetch('http://localhost:4000/api/v1/forms/hotwork')
       .then(hotworkForms => hotworkForms.json())
       .then(hotworkForms => this.setState({ hotworkForms }))
       .catch(error => { throw error; });
-    fetch('http://localhost:4000/api/v1/forms/pretask')
+    fetch('https://construction-forms-backend.herokuapp.com/api/v1/forms/pretask')
+//    fetch('http://localhost:4000/api/v1/forms/pretask')
       .then(pretaskForms => pretaskForms.json())
       .then(pretaskForms => this.setState({ pretaskForms }))
       .catch(error => { throw error; });
