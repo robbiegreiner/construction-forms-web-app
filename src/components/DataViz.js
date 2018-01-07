@@ -148,6 +148,37 @@ class DataViz extends Component {
                   <h2 className="data-viz-cards-header">Select a project</h2>
                   <div className="data-viz-cards">
                   {
+                    this.state.dataVizControl &&
+                      <div className="selected-div">
+                        {
+                          this.state.hotworkForms.map((form, index) => {
+                            if (parseInt(this.state.dataVizControl.split(' - ')[1]) === form.project_id) {
+                              const sigImg = new Image();
+                              sigImg.src = form.signature;
+                              return <Card
+                                key={'hotworkForm' + index}
+                                header={'Hotwork Permit - ' + form.employee_name}
+                                cardClickHandler={this.cardClickHandler}
+                                formDetails={[
+                                  form.employee_email,
+                                  form.project_id,
+                                  form.company,
+                                  form.date,
+                                  form.firewatchRequirement,
+                                  form.areaInspected,
+                                  form.fireExtinguisher,
+                                  form.flammablesRemoved,
+                                  form.sprinklerHeadsProtected,
+                                  form.signature,
+                                  sigImg,
+                                ]}
+                              />
+                            }
+                          })
+                        }
+                      </div>
+                  }
+                  {
                     this.state.projects.map((project, index) => {
                       return <Card
                         header={project.name}
@@ -159,33 +190,6 @@ class DataViz extends Component {
                       />
                     })
                   }
-                  {
-                    this.state.dataVizControl &&
-                    this.state.hotworkForms.map((form, index) => {
-                      if (parseInt(this.state.dataVizControl.split(' - ')[1]) === form.project_id) {
-                        const sigImg = new Image();
-                        sigImg.src = form.signature;
-                        return <Card
-                          key={'hotworkForm' + index}
-                          header={'Hotwork Permit - ' + form.employee_name}
-                          cardClickHandler={this.cardClickHandler}
-                          formDetails={[
-                            form.employee_email,
-                            form.project_id,
-                            form.company,
-                            form.date,
-                            form.firewatchRequirement,
-                            form.areaInspected,
-                            form.fireExtinguisher,
-                            form.flammablesRemoved,
-                            form.sprinklerHeadsProtected,
-                            form.signature,
-                            sigImg,
-                          ]}
-                        />
-                      }
-                    })
-                  }
                 </div>
               </div>
             }
@@ -194,6 +198,37 @@ class DataViz extends Component {
                 <div>
                   <h2 className="data-viz-cards-header">Select an employee</h2>
                   <div className="data-viz-cards">
+                  {
+                    this.state.dataVizControl &&
+                      <div className="selected-div">
+                        {
+                          this.state.hotworkForms.map((form, index) => {
+                            if (this.state.dataVizControl.split(' - ')[1] === form.employee_id) {
+                              const sigImg = new Image();
+                              sigImg.src = form.signature;
+                              return <Card
+                                key={'hotworkForm' + index}
+                                header={'Hotwork Permit - ' + form.employee_name}
+                                cardClickHandler={this.cardClickHandler}
+                                formDetails={[
+                                  form.employee_email,
+                                  form.project_id,
+                                  form.company,
+                                  form.date,
+                                  form.firewatchRequirement,
+                                  form.areaInspected,
+                                  form.fireExtinguisher,
+                                  form.flammablesRemoved,
+                                  form.sprinklerHeadsProtected,
+                                  form.signature,
+                                  sigImg,
+                                ]}
+                              />
+                            }
+                          })
+                        }
+                    </div>
+                  }
                   {
                     this.state.employees.map((employee, index) => {
                       return <Card
@@ -204,34 +239,6 @@ class DataViz extends Component {
                         reportsBySelectionHandler={this.reportsBySelectionHandler}
                         cardClickHandler={this.cardClickHandler}
                       />
-                    })
-                  }
-                  {
-                    this.state.dataVizControl &&
-                    this.state.hotworkForms.map((form, index) => {
-                      console.log(this.state.dataVizControl.split(' - ')[1], form.employee_id)
-                      if (this.state.dataVizControl.split(' - ')[1] === form.employee_id) {
-                        const sigImg = new Image();
-                        sigImg.src = form.signature;
-                        return <Card
-                          key={'hotworkForm' + index}
-                          header={'Hotwork Permit - ' + form.employee_name}
-                          cardClickHandler={this.cardClickHandler}
-                          formDetails={[
-                            form.employee_email,
-                            form.project_id,
-                            form.company,
-                            form.date,
-                            form.firewatchRequirement,
-                            form.areaInspected,
-                            form.fireExtinguisher,
-                            form.flammablesRemoved,
-                            form.sprinklerHeadsProtected,
-                            form.signature,
-                            sigImg,
-                          ]}
-                        />
-                      }
                     })
                   }
                 </div>

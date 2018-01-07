@@ -69,3 +69,7 @@
   height: 100%; 
   text-align: center;
 }
+
+.selected-div {
+  width: 100%;
+}
