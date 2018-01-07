@@ -4,14 +4,17 @@ import '../styles/Card.css';
 class Card extends Component {
   render() {
     return (
-      <div className={ this.props.formDetails ? "form-card" : "card" }>
+      <div
+        className={ this.props.formDetails ? "form-card" : "card" }
+        onClick={() => this.props.cardClickHandler(this.props)}
+      >
         <h5>{this.props.header}</h5>
-        <p>{this.props.body}</p>
+        <p className={ this.props.reportsBySelectionHandler ? "report-by-selection" : null }>{this.props.body}</p>
         {
           this.props.projectInfo &&
             <div>
-              <p>Public: {this.props.projectInfo[0].toString()}</p>
-              <p>Union: {this.props.projectInfo[1].toString()}</p>
+              <p>Public: {this.props.projectInfo[0] ? 'Yes' : 'No' }</p>
+              <p>Union: {this.props.projectInfo[1] ? 'Yes' : 'No' }</p>
             </div>
         }
         {
@@ -22,7 +25,7 @@ class Card extends Component {
             </div>
         }
         {
-          this.props.formDetails && 
+          this.props.formDetails &&
             <div className="form-card">
               <p>Employee Email: {this.props.formDetails[0]}</p>
               <p>Project ID: {this.props.formDetails[1]}</p>

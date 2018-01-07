@@ -27,16 +27,31 @@
 .add-popup input {
   display: block;
   width: 80%;
-  margin: auto;
+  transform: scale(1.2, 1.2);
+  margin: 5px auto;
 }
 
 .popup-form {
-  text-align: center;
-  padding: 25px;
+  padding: 5%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 50%;
   background-color: #DEE3EB;
+  height: 95%;
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0px 8px 24px 0px rgba(0,0,0,0.19);
+}
+
+.popup-form label select {
+  margin-left: 5px;
 }
 
 .close-popup {
-  float: right;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  transform: scale(2,2)
 }
