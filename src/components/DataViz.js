@@ -118,10 +118,15 @@ class DataViz extends Component {
     }
   }
 
+  aToZ = arrayOfObjs => {
+    const sorted = arrayOfObjs.sort((a, b) => a.name.localeCompare(b.name))
+    return sorted
+  }
+
   cardSwitch = (selectedControl) => {
     switch (selectedControl) {
     case 'Projects':
-      return this.state.projects.map((project, index) => {
+      return this.aToZ(this.state.projects).map((project, index) => {
         return <Card
           key={'project' + index}
           header={project.name}
@@ -131,7 +136,7 @@ class DataViz extends Component {
         />;
       });
     case 'Employees':
-      return this.state.employees.map((employee, index) => {
+      return this.aToZ(this.state.employees).map((employee, index) => {
         return <Card
           key={'employee' + index}
           header={employee.name}
@@ -211,7 +216,7 @@ class DataViz extends Component {
                 </div>
             }
             {
-              this.state.projects.map((project, index) => {
+              this.aToZ(this.state.projects).map((project, index) => {
                 return <Card
                   header={project.name}
                   body={<button onClick={() => this.reportsBySelectionHandler('Reports By Project - ' + project.id)}>Select</button>}
@@ -264,7 +269,7 @@ class DataViz extends Component {
                 </div>
             }
             {
-              this.state.employees.map((employee, index) => {
+              this.aToZ(this.state.employees).map((employee, index) => {
                 return <Card
                   header={employee.name}
                   body={<button onClick={() => this.reportsBySelectionHandler('Reports By Employee - ' + employee.id)}>Select</button>}
