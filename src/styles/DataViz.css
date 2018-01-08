@@ -48,7 +48,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  width: 75%;
+  width: 100%;
 }
 
 .card p {
@@ -59,10 +59,10 @@
   white-space: nowrap;
 }
 
-.card .report-by-selection {
-  float: right;
-  width: initial;
-  display: inline;
+.card .report-by-selection button {
+  border: none;
+  width: 100%;
+  border-radius: 4px;
 }
 
 .welcome {
