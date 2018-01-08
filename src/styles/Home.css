@@ -51,7 +51,11 @@
 
 .close-popup {
   position: absolute;
-  top: 10%;
-  right: 10%;
-  transform: scale(2,2)
+  top: 0;
+  right: 0;
+  margin: 10px;
+  color: red;
+  border: none;
+  background: none;
+  font-size: 24px;
 }

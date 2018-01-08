@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { Component } from 'react';
 import '../styles/Form.css';
 
@@ -18,7 +19,7 @@ class HotworkForm extends Component {
       flammablesRemoved: false,
       smokeDetectorsDisabled: false,
       sprinklerHeadsProtected: false
-    }
+    };
   }
 
   postForm(event) {
@@ -44,7 +45,7 @@ class HotworkForm extends Component {
         sprinklerHeadsProtected: this.state.employee_name
       })
     });
-  };
+  }
 
   render() {
     return (
@@ -118,7 +119,7 @@ class HotworkForm extends Component {
         </section>
         <button onClick={(event) => this.postForm(event)}>Submit</button>
       </form>
-    )
+    );
   }
 }
 
