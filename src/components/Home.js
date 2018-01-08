@@ -61,6 +61,7 @@ class Home extends Component {
         phone: this.state.newEmployee.employee_phone
       }
     );
+    this.setState({ selectedControl: ''});
     fetch('http://localhost:4000/api/v1/employees', {
       method: 'POST',
       headers: {
@@ -82,6 +83,7 @@ class Home extends Component {
         public: this.state.newProject.project_public
       }
     );
+    this.setState({ selectedControl: ''});
     fetch('http://localhost:4000/api/v1/projects', {
       method: 'POST',
       headers: {
@@ -196,10 +198,6 @@ class Home extends Component {
         </div>
       );
     }
-  }
-  // is this functinon needed?
-  postNewEmployee(event) {
-    event.preventDefault();
   }
 
   render() {
