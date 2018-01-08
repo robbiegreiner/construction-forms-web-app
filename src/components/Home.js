@@ -62,7 +62,7 @@ class Home extends Component {
       }
     );
     this.setState({ selectedControl: ''});
-    fetch('http://localhost:4000/api/v1/employees', {
+    fetch('https://construction-forms-backend.herokuapp.com/api/v1/employees', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
@@ -84,7 +84,7 @@ class Home extends Component {
       }
     );
     this.setState({ selectedControl: ''});
-    fetch('http://localhost:4000/api/v1/projects', {
+    fetch('https://construction-forms-backend.herokuapp.com/api/v1/projects', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
