@@ -1,8 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import '../styles/Home.css';
-import DataViz from './DataViz.js';
-import Controls from './Controls.js';
+import DataViz from './DataViz';
+import Controls from './Controls';
 
 class Home extends Component {
   
@@ -15,21 +16,21 @@ class Home extends Component {
         employee_name: '',
         employee_position: '',
         employee_phone: '',
-        employee_email: '',
+        employee_email: ''
       },
       newProject: { 
         project_name: '',
         project_location: '',
         project_public: false,
-        project_union: false,
-      },
+        project_union: false
+      }
     };
   }
 
   selectControl = (control) => {
     this.state.selectedControl === control ?
       this.setState({selectedControl: ''}) :
-      this.setState({selectedControl: control})
+      this.setState({selectedControl: control});
   }
 
   handleEmployeeChange = (event) => {
@@ -38,7 +39,7 @@ class Home extends Component {
         this.state.newEmployee, 
         { [event.target.className]: event.target.value }
       )
-    })
+    });
   }
 
   handleProjectChange = (event) => {
@@ -47,7 +48,7 @@ class Home extends Component {
         this.state.newProject, 
         { [event.target.className]: event.target.value }
       )
-    })
+    });
   }
 
   postNewEmployee = (event) => {
@@ -57,10 +58,10 @@ class Home extends Component {
         name: this.state.newEmployee.employee_name,
         position: this.state.newEmployee.employee_position,
         email: this.state.newEmployee.employee_email,
-        phone: this.state.newEmployee.employee_phone,
+        phone: this.state.newEmployee.employee_phone
       }
     );
-    fetch(`http://localhost:4000/api/v1/employees`, {
+    fetch('http://localhost:4000/api/v1/employees', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
@@ -78,11 +79,10 @@ class Home extends Component {
         name: this.state.newProject.project_name,
         location: this.state.newProject.project_location,
         union: this.state.newProject.project_union,
-        public: this.state.newProject.project_public,
+        public: this.state.newProject.project_public
       }
     );
-    console.log(postBody)
-    fetch(`http://localhost:4000/api/v1/projects`, {
+    fetch('http://localhost:4000/api/v1/projects', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json'
@@ -142,7 +142,7 @@ class Home extends Component {
             <input type="submit" value="Submit" />
           </form>
         </div>
-      )
+      );
     }
     if (this.state.selectedControl === 'Add Project') {
       return (
@@ -194,27 +194,26 @@ class Home extends Component {
             <input type="submit" value="Submit" />
           </form>
         </div>
-      )
+      );
     }
   }
-
+  // is this functinon needed?
   postNewEmployee(event) {
     event.preventDefault();
-    console.log(event.target) 
   }
 
   render() {
     return (
-        <div className="main-container">
-          <Controls 
-            selectControl = {this.selectControl}
-            selectedControl = {this.state.selectedControl}
-          />
-          <DataViz 
-            selectedControl = {this.state.selectedControl}
-          />
-          {this.renderPopUp()}
-        </div>
+      <div className="main-container">
+        <Controls 
+          selectControl = {this.selectControl}
+          selectedControl = {this.state.selectedControl}
+        />
+        <DataViz 
+          selectedControl = {this.state.selectedControl}
+        />
+        {this.renderPopUp()}
+      </div>
     );
   }
 }

@@ -23,22 +23,22 @@ class DataViz extends Component {
 
   componentDidMount() {
     fetch('https://construction-forms-backend.herokuapp.com/api/v1/projects')
-//    fetch('http://localhost:4000/api/v1/projects')
+    //    fetch('http://localhost:4000/api/v1/projects')
       .then(projects => projects.json())
       .then(projects => this.setState({ projects }))
       .catch(error => { throw error; });
     fetch('https://construction-forms-backend.herokuapp.com/api/v1/employees')
-//    fetch('http://localhost:4000/api/v1/employees')
+    //    fetch('http://localhost:4000/api/v1/employees')
       .then(employees => employees.json())
       .then(employees => this.setState({ employees }))
       .catch(error => { throw error; });
     fetch('https://construction-forms-backend.herokuapp.com/api/v1/forms/hotwork')
-//    fetch('http://localhost:4000/api/v1/forms/hotwork')
+    //    fetch('http://localhost:4000/api/v1/forms/hotwork')
       .then(hotworkForms => hotworkForms.json())
       .then(hotworkForms => this.setState({ hotworkForms }))
       .catch(error => { throw error; });
     fetch('https://construction-forms-backend.herokuapp.com/api/v1/forms/pretask')
-//    fetch('http://localhost:4000/api/v1/forms/pretask')
+    //    fetch('http://localhost:4000/api/v1/forms/pretask')
       .then(pretaskForms => pretaskForms.json())
       .then(pretaskForms => this.setState({ pretaskForms }))
       .catch(error => { throw error; });
@@ -52,7 +52,7 @@ class DataViz extends Component {
     this.setState({ selectedInfo });
   }
 
-// eslint-disable-next-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   mockCardClickHandler = (selectedInfo) => null;
 
   closeSelected = () => {
@@ -74,9 +74,9 @@ class DataViz extends Component {
                <p>{selectedInfo.employeeInfo[1]}</p>
                <button onClick={this.closeSelected}>X</button>
              </div>
-         }
-         {
-           selectedInfo.projectInfo &&
+        }
+        {
+          selectedInfo.projectInfo &&
            <div>
              <h5>{selectedInfo.header}</h5>
              <p>{selectedInfo.body}</p>
@@ -84,9 +84,9 @@ class DataViz extends Component {
              <p>Union: {selectedInfo.projectInfo[1] ? 'Yes' : 'No'}</p>
              <button onClick={this.closeSelected}>X</button>
            </div>
-         }
-         {
-           selectedInfo.formDetails &&
+        }
+        {
+          selectedInfo.formDetails &&
              <div>
                <h5>{selectedInfo.header}</h5>
                <p>{selectedInfo.body}</p>
