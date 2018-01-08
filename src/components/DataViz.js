@@ -119,8 +119,8 @@ class DataViz extends Component {
   }
 
   aToZ = arrayOfObjs => {
-    const sorted = arrayOfObjs.sort((a, b) => a.name.localeCompare(b.name))
-    return sorted
+    const sorted = arrayOfObjs.sort((a, b) => a.name.localeCompare(b.name));
+    return sorted;
   }
 
   cardSwitch = (selectedControl) => {
