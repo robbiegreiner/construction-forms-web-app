@@ -79,6 +79,8 @@
   display: flex;
   justify-content: space-around;
   flex-direction: column;
+  max-height: 400px;
+  overflow: scroll;
   padding: 5px 50px;
   margin: 5px;
   border-radius: 4px;
