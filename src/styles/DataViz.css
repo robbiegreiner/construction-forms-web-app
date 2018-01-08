@@ -76,7 +76,6 @@
 
 .selected-div div {
   background-color: #f2f4f7;
-  height: 40vh;
   display: flex;
   justify-content: space-around;
   flex-direction: column;
