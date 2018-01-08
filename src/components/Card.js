@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { Component } from 'react';
 import '../styles/Card.css';
 
@@ -5,11 +6,11 @@ class Card extends Component {
   render() {
     return (
       <div
-        className={ this.props.formDetails ? "form-card" : "card" }
+        className={ this.props.formDetails ? 'form-card' : 'card' }
         onClick={() => this.props.cardClickHandler(this.props)}
       >
         <h5>{this.props.header}</h5>
-        <p className={ this.props.reportsBySelectionHandler ? "report-by-selection" : null }>{this.props.body}</p>
+        <p className={ this.props.reportsBySelectionHandler ? 'report-by-selection' : null }>{this.props.body}</p>
         {
           this.props.projectInfo &&
             <div>
@@ -40,7 +41,7 @@ class Card extends Component {
             </div>
         }
       </div>
-    )
+    );
   }
 }
 
