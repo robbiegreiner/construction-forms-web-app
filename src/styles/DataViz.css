@@ -3,6 +3,7 @@
   width: 51%;
   height: 50%;
   margin: auto;
+  background-size: contain;
 }
 
 .data-viz {
@@ -66,7 +67,7 @@
 }
 
 .welcome {
-  height: 100%; 
+  height: 100%;
   text-align: center;
 }
 
