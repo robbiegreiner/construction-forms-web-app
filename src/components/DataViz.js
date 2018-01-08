@@ -114,7 +114,7 @@ class DataViz extends Component {
           <h1>Welcome to Construction Forms!</h1>
           <div className="logo"></div>
         </div>
-      )
+      );
     }
   }
 
