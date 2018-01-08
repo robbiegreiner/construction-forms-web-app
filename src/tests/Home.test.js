@@ -51,7 +51,51 @@ describe('Home tests', () => {
   });
 
   it('should handle change on the new employee input form', () => {
-    
+    const mockEvent = {
+      target: {
+        className: 'employee_name',
+        value: 'Joe Dirt'
+      }
+    }; 
+
+    const updatedState = {
+      employee_name: 'Joe Dirt',
+      employee_email: '',
+      employee_phone: '',
+      employee_position: ''
+    };
+
+    wrapper.instance().handleEmployeeChange(mockEvent);
+    expect(wrapper.state().newEmployee).toEqual(updatedState);
+  });
+
+  it('should handle change on the new project input form', () => {
+    const mockEvent = {
+      target: {
+        className: 'project_name',
+        value: 'Arcosanti Road'
+      }
+    };
+
+    const updatedState = {
+      project_name: 'Arcosanti Road',
+      project_location: '',
+      project_union: false,
+      project_public: false
+    };
+
+    wrapper.instance().handleProjectChange(mockEvent);
+    expect(wrapper.state().newProject).toEqual(updatedState);
+  });
+
+  it('should render a form to add a new employee', () => {
+    wrapper.setState({ selectedControl: 'Add Employee' });
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('should render a form to add a new project', () => {
+    wrapper.setState({ selectedControl: 'Add Project' });
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('should match the snapshot test', () => {

@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import { postNewEmployeeFetch, postNewProjectFetch } from '../utils/fetchUtils';
 import '../styles/Home.css';
 import DataViz from './DataViz';
 import Controls from './Controls';
@@ -62,15 +63,7 @@ class Home extends Component {
       }
     );
     this.setState({ selectedControl: ''});
-    fetch('https://construction-forms-backend.herokuapp.com/api/v1/employees', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(postBody)
-    })
-      .then(res => res.json())
-      .catch(error => { throw error; });
+    postNewEmployeeFetch(postBody);
   }
 
   postNewProject = (event) => {
@@ -84,15 +77,7 @@ class Home extends Component {
       }
     );
     this.setState({ selectedControl: ''});
-    fetch('https://construction-forms-backend.herokuapp.com/api/v1/projects', {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify(postBody)
-    })
-      .then(res => res.json())
-      .catch(error => { throw error; });
+    postNewProjectFetch(postBody);
   }
 
   renderPopUp() {
