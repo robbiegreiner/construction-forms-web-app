@@ -1,6 +1,5 @@
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
-// eslint-disable-next-line no-unused-vars
 import { Route } from 'react-router-dom';
 import '../styles/Controls.css';
 
