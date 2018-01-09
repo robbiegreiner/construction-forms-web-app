@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars, array-callback-return , default-case*/
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import Card from './Card';
@@ -99,7 +99,7 @@ class DataViz extends Component {
                <p>Fire Extinguisher: {selectedInfo.formDetails[6] ? 'Yes' : 'No'}</p>
                <p>Flammables Removed: {selectedInfo.formDetails[7]? 'Yes' : 'No'}</p>
                <p>Sprinkler Heads Protected: {selectedInfo.formDetails[8] ? 'Yes' : 'No'}</p>
-               <img src={selectedInfo.formDetails[9]}/>
+               <img src={selectedInfo.formDetails[9]} alt={selectedInfo.header + ' Signature'}/>
                <button onClick={this.closeSelected}>X</button>
              </div>
         }
@@ -187,7 +187,7 @@ class DataViz extends Component {
                 <div className="selected-div">
                   {
                     this.state.hotworkForms.concat(this.state.pretaskForms).map((form, index) => {
-                      if (parseInt(this.state.dataVizControl.split(' - ')[1]) === form.project_id) {
+                      if (parseInt(this.state.dataVizControl.split(' - ')[1], 10) === form.project_id) {
                         const sigImg = new Image();
                         sigImg.src = form.signature;
                         return <Card

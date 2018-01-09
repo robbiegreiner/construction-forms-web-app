@@ -37,7 +37,7 @@ class Card extends Component {
               <p>Fire Extinguisher: {this.props.formDetails[6] ? 'Yes' : 'No'}</p>
               <p>Flammables Removed: {this.props.formDetails[7]? 'Yes' : 'No'}</p>
               <p>Sprinkler Heads Protected: {this.props.formDetails[8] ? 'Yes' : 'No'}</p>
-              <img src={this.props.formDetails[9]}/>
+              <img src={this.props.formDetails[9]} alt={this.props.header + ' Signature'}/>
             </div>
         }
       </div>
