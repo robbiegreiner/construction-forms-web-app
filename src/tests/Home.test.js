@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars, no-undef */
 import React from 'react';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Home from '../components/Home';
 
 describe('Home tests', () => {
