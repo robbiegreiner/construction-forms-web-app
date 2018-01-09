@@ -2,20 +2,20 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, mount, configure } from 'enzyme';
-import Dataviz from '../components/Dataviz';
+import DataViz from '../components/DataViz';
 
 configure({ adapter: new Adapter(), disableLifecycleMethods: true });
 
-describe('Dataviz tests', () => {
+describe('DataViz tests', () => {
 
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Dataviz />);
+    wrapper = shallow(<DataViz />);
   });
 
   it('should render without crashing', () => {
-    shallow(<Dataviz />);
+    shallow(<DataViz />);
   });
 
   it('should render with empty state', () => {
@@ -86,7 +86,7 @@ describe('Dataviz tests', () => {
   });
 
   it('should match snapshot when selectedControl is Projects', () => {
-    const wrapper = shallow(<Dataviz selectedControl='Projects' />);
+    const wrapper = shallow(<DataViz selectedControl='Projects' />);
     wrapper.instance().setState({ 
       projects: [
         { id: 1, location: 'Omaha', name: 'FNBO Building', public: true, union: true },
@@ -98,7 +98,7 @@ describe('Dataviz tests', () => {
   });
 
   it('should match snapshot when selectedControl is Employees', () => {
-    const wrapper = shallow(<Dataviz selectedControl='Employees' />);
+    const wrapper = shallow(<DataViz selectedControl='Employees' />);
     wrapper.instance().setState({ 
       employees: [
         { id: 1, email: 'robbie@email.com', name: 'Robbie Griener', phone: '555-555-5556', position: 'The Boss' },
@@ -110,7 +110,7 @@ describe('Dataviz tests', () => {
   });
 
   it('should match snapshot when selectedControl is All Reports', () => {
-    const wrapper = shallow(<Dataviz selectedControl='All Reports' />);
+    const wrapper = shallow(<DataViz selectedControl='All Reports' />);
     wrapper.instance().setState({ 
       hotworkForms: [
         { 
@@ -158,7 +158,7 @@ describe('Dataviz tests', () => {
   });
   
   it('should match snapshot when Reports By Project is selectedControl', () => {
-    const wrapper = shallow(<Dataviz selectedControl='Reports By Project' />);
+    const wrapper = shallow(<DataViz selectedControl='Reports By Project' />);
     wrapper.instance().setState({ 
       employees: [
         { id: 1, email: 'dani@g.com', name: 'Dani Griener', location: 'Denver', position: 'Welder' }
@@ -185,7 +185,7 @@ describe('Dataviz tests', () => {
   });
 
   it('should match snapshot when Reports By Employee is selectedControl', () => {
-    const wrapper = shallow(<Dataviz selectedControl='Reports By Employee' />);
+    const wrapper = shallow(<DataViz selectedControl='Reports By Employee' />);
     wrapper.instance().setState({ 
       employees: [
         { id: 1, location: 'Omaha', name: 'FNBO Building', public: true, union: true }
