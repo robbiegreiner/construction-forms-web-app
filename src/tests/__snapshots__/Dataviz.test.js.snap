@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dataviz tests should match snapshot when Reports By Employee is selectedControl 1`] = `
+exports[`DataViz tests should match snapshot when Reports By Employee is selectedControl 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -427,7 +427,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Dataviz tests should match snapshot when Reports By Project is selectedControl 1`] = `
+exports[`DataViz tests should match snapshot when Reports By Project is selectedControl 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -716,7 +716,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Dataviz tests should match snapshot when selectedControl is All Reports 1`] = `
+exports[`DataViz tests should match snapshot when selectedControl is All Reports 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -1137,7 +1137,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Dataviz tests should match snapshot when selectedControl is Employees 1`] = `
+exports[`DataViz tests should match snapshot when selectedControl is Employees 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -1438,7 +1438,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Dataviz tests should match snapshot when selectedControl is Projects 1`] = `
+exports[`DataViz tests should match snapshot when selectedControl is Projects 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -1739,7 +1739,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Dataviz tests should render a welcome page when no control is selected 1`] = `
+exports[`DataViz tests should render a welcome page when no control is selected 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
