@@ -202,6 +202,7 @@ ShallowWrapper {
                     Yes
           </p>
           <img
+                    alt="Hotwork Permit - Alan Parson Signature"
                     src="xxx"
           />
 </div>,
@@ -279,6 +280,7 @@ ShallowWrapper {
               Yes
 </p>,
             <img
+              alt="Hotwork Permit - Alan Parson Signature"
               src="xxx"
 />,
           ],
@@ -444,6 +446,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "alt": "Hotwork Permit - Alan Parson Signature",
               "src": "xxx",
             },
             "ref": null,
@@ -511,6 +514,7 @@ ShallowWrapper {
                         Yes
             </p>
             <img
+                        alt="Hotwork Permit - Alan Parson Signature"
                         src="xxx"
             />
 </div>,
@@ -588,6 +592,7 @@ ShallowWrapper {
                 Yes
 </p>,
               <img
+                alt="Hotwork Permit - Alan Parson Signature"
                 src="xxx"
 />,
             ],
@@ -753,6 +758,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "alt": "Hotwork Permit - Alan Parson Signature",
                 "src": "xxx",
               },
               "ref": null,
