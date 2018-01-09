@@ -1,6 +1,11 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable no-unused-vars, array-callback-return , default-case*/
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
+import { 
+  fetchProjects, 
+  fetchEmployees, 
+  fetchHotwork, 
+  fetchPretask } from '../utils/fetchUtils';
 import Card from './Card';
 import HotworkForm from './HotworkForm';
 import PretaskForm from './PretaskForm';
@@ -22,29 +27,13 @@ class DataViz extends Component {
   }
 
   componentDidMount() {
-    fetch('https://construction-forms-backend.herokuapp.com/api/v1/projects')
-    //    fetch('http://localhost:4000/api/v1/projects')
-      .then(projects => projects.json())
-      .then(projects => this.setState({ projects }))
-      .catch(error => { throw error; });
-    fetch('https://construction-forms-backend.herokuapp.com/api/v1/employees')
-    //    fetch('http://localhost:4000/api/v1/employees')
-      .then(employees => employees.json())
-      .then(employees => this.setState({ employees }))
-      .catch(error => { throw error; });
-    fetch('https://construction-forms-backend.herokuapp.com/api/v1/forms/hotwork')
-    //    fetch('http://localhost:4000/api/v1/forms/hotwork')
-      .then(hotworkForms => hotworkForms.json())
-      .then(hotworkForms => this.setState({ hotworkForms }))
-      .catch(error => { throw error; });
-    fetch('https://construction-forms-backend.herokuapp.com/api/v1/forms/pretask')
-    //    fetch('http://localhost:4000/api/v1/forms/pretask')
-      .then(pretaskForms => pretaskForms.json())
-      .then(pretaskForms => this.setState({ pretaskForms }))
-      .catch(error => { throw error; });
+    fetchProjects(this);
+    fetchEmployees(this);
+    fetchHotwork(this);
+    fetchPretask(this);
   }
 
-  reportsBySelectionHandler = (selection) => {
+  formsBySelector = (selection) => {
     this.setState({ dataVizControl: selection });
   }
 
@@ -99,7 +88,7 @@ class DataViz extends Component {
                <p>Fire Extinguisher: {selectedInfo.formDetails[6] ? 'Yes' : 'No'}</p>
                <p>Flammables Removed: {selectedInfo.formDetails[7]? 'Yes' : 'No'}</p>
                <p>Sprinkler Heads Protected: {selectedInfo.formDetails[8] ? 'Yes' : 'No'}</p>
-               <img src={selectedInfo.formDetails[9]}/>
+               <img src={selectedInfo.formDetails[9]} alt={selectedInfo.header + ' Signature'}/>
                <button onClick={this.closeSelected}>X</button>
              </div>
         }
@@ -187,7 +176,7 @@ class DataViz extends Component {
                 <div className="selected-div">
                   {
                     this.state.hotworkForms.concat(this.state.pretaskForms).map((form, index) => {
-                      if (parseInt(this.state.dataVizControl.split(' - ')[1]) === form.project_id) {
+                      if (parseInt(this.state.dataVizControl.split(' - ')[1], 10) === form.project_id) {
                         const sigImg = new Image();
                         sigImg.src = form.signature;
                         return <Card
@@ -219,11 +208,11 @@ class DataViz extends Component {
               this.aToZ(this.state.projects).map((project, index) => {
                 return <Card
                   header={project.name}
-                  body={<button onClick={() => this.reportsBySelectionHandler('Reports By Project - ' + project.id)}>Select</button>}
+                  body={<button onClick={() => this.formsBySelector('Reports By Project - ' + project.id)}>Select</button>}
                   projectId={project.id}
                   key={'project' + index}
                   cardClickHandler={this.cardClickHandler}
-                  reportsBySelectionHandler={this.reportsBySelectionHandler}
+                  formsBySelector={true}
                 />;
               })
             }
@@ -272,10 +261,10 @@ class DataViz extends Component {
               this.aToZ(this.state.employees).map((employee, index) => {
                 return <Card
                   header={employee.name}
-                  body={<button onClick={() => this.reportsBySelectionHandler('Reports By Employee - ' + employee.id)}>Select</button>}
+                  body={<button onClick={() => this.formsBySelector('Reports By Employee - ' + employee.id)}>Select</button>}
                   employeeId={employee.id}
                   key={'employee' + index}
-                  reportsBySelectionHandler={this.reportsBySelectionHandler}
+                  formsBySelector={true}
                   cardClickHandler={this.cardClickHandler}
                 />;
               })
