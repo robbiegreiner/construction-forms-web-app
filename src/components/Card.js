@@ -10,7 +10,7 @@ class Card extends Component {
         onClick={() => this.props.cardClickHandler(this.props)}
       >
         <h5>{this.props.header}</h5>
-        <p className={ this.props.reportsBySelectionHandler ? 'report-by-selection' : null }>{this.props.body}</p>
+        <p className={ this.props.formsBySelector ? 'report-by-selection' : null }>{this.props.body}</p>
         {
           this.props.projectInfo &&
             <div>

@@ -33,7 +33,7 @@ class DataViz extends Component {
     fetchPretask(this);
   }
 
-  reportsBySelectionHandler = (selection) => {
+  formsBySelector = (selection) => {
     this.setState({ dataVizControl: selection });
   }
 
@@ -208,11 +208,11 @@ class DataViz extends Component {
               this.aToZ(this.state.projects).map((project, index) => {
                 return <Card
                   header={project.name}
-                  body={<button onClick={() => this.reportsBySelectionHandler('Reports By Project - ' + project.id)}>Select</button>}
+                  body={<button onClick={() => this.formsBySelector('Reports By Project - ' + project.id)}>Select</button>}
                   projectId={project.id}
                   key={'project' + index}
                   cardClickHandler={this.cardClickHandler}
-                  reportsBySelectionHandler={this.reportsBySelectionHandler}
+                  formsBySelector={true}
                 />;
               })
             }
@@ -261,10 +261,10 @@ class DataViz extends Component {
               this.aToZ(this.state.employees).map((employee, index) => {
                 return <Card
                   header={employee.name}
-                  body={<button onClick={() => this.reportsBySelectionHandler('Reports By Employee - ' + employee.id)}>Select</button>}
+                  body={<button onClick={() => this.formsBySelector('Reports By Employee - ' + employee.id)}>Select</button>}
                   employeeId={employee.id}
                   key={'employee' + index}
-                  reportsBySelectionHandler={this.reportsBySelectionHandler}
+                  formsBySelector={true}
                   cardClickHandler={this.cardClickHandler}
                 />;
               })
