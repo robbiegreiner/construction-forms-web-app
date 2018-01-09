@@ -89,7 +89,7 @@ exports[`DataViz tests should match snapshot when selectedControl is All Reports
           "xxx",
           <img
             src="xxx"
-        />,
+          />,
         ]
       }
       header="Hotwork Permit - Robbie"
@@ -111,7 +111,7 @@ exports[`DataViz tests should match snapshot when selectedControl is All Reports
           "xxx",
           <img
             src="xxx"
-        />,
+          />,
         ]
       }
       header="Pretask Permit - Robbie"
