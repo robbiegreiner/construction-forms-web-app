@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars, array-callback-return , default-case*/
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import { 
   fetchProjects, 
   fetchEmployees, 
@@ -289,9 +288,5 @@ class DataViz extends Component {
     );
   }
 }
-
-DataViz.propTyes = {
-  selectedControl: PropTypes.number
-};
 
 export default DataViz;
