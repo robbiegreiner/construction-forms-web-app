@@ -19,7 +19,7 @@ describe('Card tests', () => {
     expect(wrapper.hasClass('card')).toEqual(true);
   });
 
-  it('should have a class for form-card when passed formDetails', () => {
+  it('should have a class of form-card when passed formDetails', () => {
     wrapper = shallow(<Card formDetails={[]} />);
     expect(wrapper.hasClass('form-card')).toEqual(true);
   });
