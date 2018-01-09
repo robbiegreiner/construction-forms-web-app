@@ -2,6 +2,7 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
 import { shallow, mount, configure } from 'enzyme';
+import toJson from 'enzyme-to-json';
 import DataViz from '../components/DataViz';
 
 configure({ adapter: new Adapter(), disableLifecycleMethods: true });
@@ -80,45 +81,45 @@ describe('DataViz tests', () => {
 
     expect(wrapper.instance().aToZ(arrayOfObjs)).toEqual(sortedArray);
   });
-  
+
   it('should render a welcome page when no control is selected', () => {
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should match snapshot when selectedControl is Projects', () => {
     const wrapper = shallow(<DataViz selectedControl='Projects' />);
-    wrapper.instance().setState({ 
+    wrapper.instance().setState({
       projects: [
         { id: 1, location: 'Omaha', name: 'FNBO Building', public: true, union: true },
         { id: 2, location: 'Boston', name: 'Stadium', public: true, union: false }
       ]
     });
     wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should match snapshot when selectedControl is Employees', () => {
     const wrapper = shallow(<DataViz selectedControl='Employees' />);
-    wrapper.instance().setState({ 
+    wrapper.instance().setState({
       employees: [
         { id: 1, email: 'robbie@email.com', name: 'Robbie Griener', phone: '555-555-5556', position: 'The Boss' },
         { id: 2, email: 'mickjeets@email.com', name: 'Mick Jeets', phone: '444-444-4445', position: 'Underling' }
       ]
     });
     wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should match snapshot when selectedControl is All Reports', () => {
     const wrapper = shallow(<DataViz selectedControl='All Reports' />);
-    wrapper.instance().setState({ 
+    wrapper.instance().setState({
       hotworkForms: [
-        { 
-          id: 1, 
-          areaInspected: true, 
-          company: 'Mortenson', 
+        {
+          id: 1,
+          areaInspected: true,
+          company: 'Mortenson',
           date: '2018-01-07T21:18:12.993Z',
-          employee_email: 'robbie@g.com', 
+          employee_email: 'robbie@g.com',
           employee_id: '31',
           employee_name: 'Robbie',
           fireExtinguisher: true,
@@ -129,14 +130,14 @@ describe('DataViz tests', () => {
         }
       ],
       pretaskForms: [
-        { 
-          id: 1, 
-          adequateLighting: true, 
+        {
+          id: 1,
+          adequateLighting: true,
           buddyAssignment: false,
-          company: 'Mortenson', 
+          company: 'Mortenson',
           crewSize: 12,
           date: '2018-01-07T21:18:12.993Z',
-          employee_email: 'robbie@g.com', 
+          employee_email: 'robbie@g.com',
           employee_id: '31',
           employee_name: 'Robbie',
           equipmentShutdown: true,
@@ -151,25 +152,25 @@ describe('DataViz tests', () => {
           safetyLocations: false,
           signature: 'xxx'
         }
-      ] 
+      ]
     });
     wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
-  
+
   it('should match snapshot when Reports By Project is selectedControl', () => {
     const wrapper = shallow(<DataViz selectedControl='Reports By Project' />);
-    wrapper.instance().setState({ 
+    wrapper.instance().setState({
       employees: [
         { id: 1, email: 'dani@g.com', name: 'Dani Griener', location: 'Denver', position: 'Welder' }
-      ], 
+      ],
       hotworkForms: [
-        { 
-          id: 1, 
-          areaInspected: true, 
-          company: 'Mortenson', 
+        {
+          id: 1,
+          areaInspected: true,
+          company: 'Mortenson',
           date: '2018-01-07T21:18:12.993Z',
-          employee_email: 'robbie@g.com', 
+          employee_email: 'robbie@g.com',
           employee_id: '31',
           employee_name: 'Robbie',
           fireExtinguisher: true,
@@ -177,26 +178,26 @@ describe('DataViz tests', () => {
           flammablesRemoved: true,
           project_id: 11,
           signature: 'xxx'
-        }   
+        }
       ]
     });
     wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('should match snapshot when Reports By Employee is selectedControl', () => {
     const wrapper = shallow(<DataViz selectedControl='Reports By Employee' />);
-    wrapper.instance().setState({ 
+    wrapper.instance().setState({
       employees: [
         { id: 1, location: 'Omaha', name: 'FNBO Building', public: true, union: true }
-      ], 
+      ],
       hotworkForms: [
-        { 
-          id: 1, 
-          areaInspected: true, 
-          company: 'Mortenson', 
+        {
+          id: 1,
+          areaInspected: true,
+          company: 'Mortenson',
           date: '2018-01-07T21:18:12.993Z',
-          employee_email: 'robbie@g.com', 
+          employee_email: 'robbie@g.com',
           employee_id: '31',
           employee_name: 'Robbie',
           fireExtinguisher: true,
@@ -204,11 +205,11 @@ describe('DataViz tests', () => {
           flammablesRemoved: true,
           project_id: 11,
           signature: 'xxx'
-        }   
+        }
       ]
     });
     wrapper.update();
-    expect(wrapper).toMatchSnapshot();
+    expect(toJson(wrapper)).toMatchSnapshot();
   });
-  
+
 });
