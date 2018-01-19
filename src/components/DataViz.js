@@ -144,19 +144,44 @@ class DataViz extends Component {
             Object.keys(form).includes('firewatchRequirement') ? 'Hotwork Permit - ' + form.employee_name : 'Pretask Permit - ' + form.employee_name
           }
           cardClickHandler={this.cardClickHandler}
-          formDetails={[
-            form.employee_email,
-            form.project_id,
-            form.company,
-            form.date,
-            form.firewatchRequirement,
-            form.areaInspected,
-            form.fireExtinguisher,
-            form.flammablesRemoved,
-            form.sprinklerHeadsProtected,
-            form.signature,
-            sigImg
-          ]}
+          formDetails={
+            Object.keys(form).includes('firewatchRequirement') ? 
+              [
+                form.employee_email,
+                form.project_id,
+                form.company,
+                form.date,
+                form.firewatchRequirement,
+                form.areaInspected,
+                form.fireExtinguisher,
+                form.flammablesRemoved,
+                form.sprinklerHeadsProtected,
+                form.signature
+              ] :
+              [
+                form.employee_email,
+                form.project_id,
+                form.company,
+                form.date,
+                form.crewSize,
+                form.requireTraining,
+                form.msdsReviewed,
+                form.adequateLighting,
+                form.weatherConditions,
+                form.equipmentShutDown,
+                form.impactOwner,
+                form.planReview,
+                form.fluidDischarge,
+                form.subInvolvement,
+                form.specialPermits,
+                form.buddyAssignment,
+                form.safetyLocations,
+                form.lifting,
+                form.hazards,
+                form.signature
+              ]
+          
+          }
         />;
       });
     case 'All Forms':
