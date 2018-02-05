@@ -1,0 +1,10 @@
+.about-div {
+  background-color: red;
+  height: 79vh;
+  border-radius: 4px;
+}
+
+.hero {
+  background-image: url('../assets/conforms.png') no-repeat;
+  height: 30%;
+}

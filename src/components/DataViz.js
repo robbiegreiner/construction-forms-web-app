@@ -7,6 +7,7 @@ import {
   fetchHotwork, 
   fetchPretask } from '../utils/fetchUtils';
 import Card from './Card';
+import About from './About';
 import HotworkForm from './HotworkForm';
 import PretaskForm from './PretaskForm';
 
@@ -134,6 +135,8 @@ class DataViz extends Component {
           cardClickHandler={this.cardClickHandler}
         />;
       });
+    case 'About':
+      return <About />;
     case 'All Reports':
       return this.state.hotworkForms.concat(this.state.pretaskForms).map((form, index) => {
         const sigImg = new Image();
