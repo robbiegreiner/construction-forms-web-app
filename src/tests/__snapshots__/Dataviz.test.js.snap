@@ -87,9 +87,6 @@ exports[`DataViz tests should match snapshot when selectedControl is All Reports
           true,
           undefined,
           "xxx",
-          <img
-            src="xxx"
-          />,
         ]
       }
       header="Hotwork Permit - Robbie"
@@ -103,15 +100,22 @@ exports[`DataViz tests should match snapshot when selectedControl is All Reports
           11,
           "Mortenson",
           "2018-01-07T21:18:12.993Z",
+          12,
+          true,
+          true,
+          true,
           undefined,
           undefined,
+          false,
+          true,
+          false,
           undefined,
           undefined,
-          undefined,
+          false,
+          false,
+          false,
+          "Overhead",
           "xxx",
-          <img
-            src="xxx"
-          />,
         ]
       }
       header="Pretask Permit - Robbie"

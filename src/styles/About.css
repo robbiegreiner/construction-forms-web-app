@@ -1,10 +1,15 @@
 .about-div {
-  background-color: red;
-  height: 79vh;
+  overflow: scroll;
+  height: 75vh;
+  background-color: #f2f3f7;
   border-radius: 4px;
+  padding: 10px;
+  text-align: center;
 }
 
 .hero {
-  background-image: url('../assets/conforms.png') no-repeat;
-  height: 30%;
+  height: 40%;
+  background: url('../assets/hero.png') no-repeat;
+  background-size: contain;
+  background-position: center;
 }
