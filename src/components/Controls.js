@@ -6,7 +6,7 @@ import '../styles/Controls.css';
 class Controls extends Component {
 
   generateButtons() {
-    const buttonContent = ['Projects', 'Employees', 'All Reports', 'Reports By Project', 'Reports By Employee', 'All Forms', 'Add Employee', 'Add Project'];
+    const buttonContent = ['Projects', 'Employees', 'All Reports', 'Reports By Project', 'Reports By Employee', 'All Forms', 'About', 'Add Employee', 'Add Project'];
 
     return buttonContent.map((buttonName, index) => {
       return (

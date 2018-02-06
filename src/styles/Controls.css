@@ -69,12 +69,16 @@
   background: url('../assets/reports-employee-icon.png') no-repeat;
 }
 
-.bg-7, .bg-6 {
+.bg-7, .bg-8 {
   background: url('../assets/plus-icon.png') no-repeat;
 }
 
 .bg-5 {
   background: url('../assets/temp-icon.png') no-repeat;
+}
+
+.bg-6 {
+  background: url('../assets/about.png') no-repeat;
 }
 
 .circle-icon {
